@@ -12,7 +12,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/game/:id" element={<GamePage />}/>
+        <Route path="/game/:gameId" element={<GamePage />}/>
+
       </Routes>
 
       <Footer />
