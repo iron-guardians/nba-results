@@ -2,22 +2,30 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="p-2 text-center bg-black mt-4">
-      <p className="text-white font-semibold mb-2">
-        Where Basketball Meets Data
-      </p>
-      <p className="text-white">
-        <a
-          href="https://github.com/iron-guardians"
-          target="_blank"
-          className="hover:underline"
-        >
-          IRON GUARDIANS
-        </a>{" "}
-        ©, 2025 | Developed for IronHack Web Dev Bootcamp
-      </p>
-    </div>
+    <footer className="bg-gray-900 text-white py-6 shadow-inner">
+      <div className="container mx-auto text-center">
+      
+        {/* Lema */}
+        <p className="text-blue-400 font-semibold text-lg mb-2 transition-colors duration-300">
+          Where Basketball Meets Data
+        </p>
+
+        {/* Enlace y Créditos */}
+        <p className="text-gray-400 text-sm">
+          <a
+            href="https://github.com/iron-guardians"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-orange-500 transition-colors duration-300"
+          >
+            IRON GUARDIANS
+          </a>{" "}
+          ©, 2025 | Developed for IronHack Web Dev Bootcamp
+        </p>
+      </div>
+    </footer>
   );
 }
 
 export default Footer;
+
