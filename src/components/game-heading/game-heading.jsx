@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import dayjs from '../../lib/dayjs';
+import teamsData from '../../data/teams-data.json';
 
 function GameHeading({ game, teams }) {
 
@@ -10,14 +11,14 @@ function GameHeading({ game, teams }) {
 
     const [visitorTeamStanding, homeTeamStanding] = teams;
 
-    const visitorTeam = visitorTeamStanding.team;
-    const homeTeam = homeTeamStanding.team;
+    const visitorTeam = teamsData.find(team => team.id === visitorTeamStanding.team.id);
+    const homeTeam = teamsData.find(team => team.id === homeTeamStanding.team.id);
 
     return (
         <div
           className="flex flex-col items-center justify-center p-6 w-full hover:shadow-lg transition-transform duration-600"
           style={{
-            background: `linear-gradient(135deg, ${visitorTeam.color} 0%, ${homeTeam.color} 100%)`,
+            background: `linear-gradient(135deg, ${visitorTeam.visitorColor} 0%, #111827 50%,  ${homeTeam.homeColor} 100%)`,
           }}
         >
           {/* Fecha del partido */}
@@ -29,7 +30,7 @@ function GameHeading({ game, teams }) {
           <div className="flex items-center justify-center w-full text-white">
             {/* Equipo visitante */}
             <div className="flex flex-col items-center mx-8">
-              <img src={visitorTeam.logo} alt="Visitor Team Logo" className="max-h-28 max-w-28 mb-2" />
+              <img src={visitorTeam.logo} alt="Visitor Team Logo" className="min-h-28 min-w-28 mb-2" />
               <h3 className="text-lg font-bold text-center">{visitorTeam.code}</h3>
               <p className="text-sm text-gray-200">{`${visitorTeamStanding.win.total} - ${visitorTeamStanding.loss.total}`}</p>
             </div>
@@ -57,7 +58,7 @@ function GameHeading({ game, teams }) {
       
             {/* Equipo local */}
             <div className="flex flex-col items-center mx-8">
-              <img src={homeTeam.logo} alt="Home Team Logo" className="max-h-28 max-w-28 mb-2" />
+              <img src={homeTeam.logo} alt="Home Team Logo" className="min-h-28 min-w-28 mb-2" />
               <h3 className="text-lg font-bold text-center">{homeTeam.code}</h3>
               <p className="text-sm text-gray-200">{`${homeTeamStanding.win.total} - ${homeTeamStanding.loss.total}`}</p>
             </div>

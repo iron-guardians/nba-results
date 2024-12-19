@@ -12,7 +12,7 @@ function HomePage() {
   useEffect(() => {
     const today = new Date();
     const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() - 5);
+    tomorrow.setDate(today.getDate() - 3);
 
     setCurrentDate(dayjs(tomorrow).format('ll'));
 

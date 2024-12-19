@@ -30,7 +30,7 @@ function StatLineBar({ stat }) {
                 className="h-full rounded-full"
                 style={{
                   width: `${(stat.made / stat.attempted) * 100}%`,
-                  backgroundColor: stat.team.color, // Color dinámico de la barra
+                  background: `${stat.isHome ? stat.team.homeColor : stat.team.visitorColor}`, // Color dinámico de la barra
                 }}
               ></div>
             </div>
