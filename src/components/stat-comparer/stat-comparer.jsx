@@ -19,6 +19,7 @@ function StatComparer({ stat }) {
                 made: stat.visitorsMade,
                 attempted: stat.isPercentage ? stat.visitorsAttempted : bestStat,
                 isPercentage: stat.isPercentage,
+                isHome: false
               }}
             />
       
@@ -28,6 +29,7 @@ function StatComparer({ stat }) {
                 made: stat.homeMade,
                 attempted: stat.isPercentage ? stat.homeAttempted : bestStat,
                 isPercentage: stat.isPercentage,
+                isHome: true
               }}
             />
           </div>

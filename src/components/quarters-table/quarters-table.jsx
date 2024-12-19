@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 
+
 function QuartersTable({ game, teams }) {
-    const [visitorTeamStanding, homeTeamStanding] = teams;
-  
+    const [visitorTeam, homeTeam] = teams;
+
     return (
       <div
         className="overflow-x-auto rounded-lg border border-gray-700 shadow-md hover:shadow-lg transition-transform duration-600 p-4">
@@ -22,7 +23,7 @@ function QuartersTable({ game, teams }) {
             <tr className="border-t border-gray-200">
               <td className="px-4 py-2">
                 <img
-                  src={visitorTeamStanding.team.logo}
+                  src={visitorTeam.logo}
                   alt="Visitor Team Logo"
                   className="max-h-20 max-w-20 mx-auto"
                 />
@@ -41,7 +42,7 @@ function QuartersTable({ game, teams }) {
             <tr>
               <td className="px-4 py-2">
                 <img
-                  src={homeTeamStanding.team.logo}
+                  src={homeTeam.logo}
                   alt="Home Team Logo"
                   className="max-h-20 max-w-20 mx-auto"
                 />

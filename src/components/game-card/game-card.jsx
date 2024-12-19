@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 
 import standings from '../../data/standings.json';
+import teamsData from '../../data/teams-data.json';
 
 function GameCard({ game }) {
     
     const visitorTeamStanding = standings.response.find(standing => standing.team.id === game.teams.visitors.id);
     const homeTeamStanding = standings.response.find(standing => standing.team.id === game.teams.home.id);
 
-    const homeTeam = homeTeamStanding.team;
-    const visitorTeam = visitorTeamStanding.team;
+    const homeTeam = teamsData.find(team => team.id === homeTeamStanding.team.id);
+    const visitorTeam = teamsData.find(team => team.id === visitorTeamStanding.team.id);
 
     /////////////////////////////////
     // THE TEAMS INFO WILL BE SAVED IN A JSON LOCALLY!!
@@ -18,11 +19,11 @@ function GameCard({ game }) {
       <div className="flex items-center justify-between border border-gray-700 rounded-lg p-4 bg-gray-800 shadow-md hover:shadow-lg transition-transform duration-600">
         {/* Team 1 */}
         <div className="flex flex-col items-center group">
-          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounce">
+          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
             <img 
               src={visitorTeam.logo} 
               alt="Visitor Team Logo" 
-              className="max-h-16 max-w-16 object-contain"
+              className="min-h-20 min-w-20 object-contain"
             />
           </div>
           <h3 className="text-sm font-semibold mt-2 text-orange-400">{visitorTeam.code}</h3>
@@ -49,11 +50,11 @@ function GameCard({ game }) {
     
         {/* Team 2 */}
         <div className="flex flex-col items-center group">
-          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounce">
+          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
             <img 
               src={homeTeam.logo} 
               alt="Home Team Logo" 
-              className="max-h-16 max-w-16 object-contain"
+              className="min-h-20 min-w-20 object-contain"
             />
           </div>
           <h3 className="text-sm font-semibold mt-2 text-orange-400">{homeTeam.code}</h3>

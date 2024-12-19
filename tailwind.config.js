@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        bounceFromCurrent: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        bounceFromCurrent: 'bounceFromCurrent 0.85s infinite ease-in-out',
+      },
+    },
   },
   plugins: [],
 }
