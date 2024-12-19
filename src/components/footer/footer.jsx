@@ -5,12 +5,12 @@ function Footer() {
     <footer className="bg-gray-900 text-white py-6 shadow-inner">
       <div className="container mx-auto text-center">
       
-        {/* Lema */}
+        {/* Slogan */}
         <p className="text-blue-400 font-semibold text-lg mb-2 transition-colors duration-300">
           Where Basketball Meets Data
         </p>
 
-        {/* Enlace y Créditos */}
+        {/* Link and Credits */}
         <p className="text-gray-400 text-sm">
           <a
             href="https://github.com/iron-guardians"

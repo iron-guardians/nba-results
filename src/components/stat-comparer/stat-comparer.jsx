@@ -7,7 +7,7 @@ function StatComparer({ stat }) {
     const bestStat = stat.visitorsMade > stat.homeMade ? stat.visitorsMade : stat.homeMade;
 
     return (
-        <div className="space-y-4 mt-4 w-96">
+        <div className="space-y-4 mt-4 w-96 mb-4">
 
             <h2 className="text-lg font-semibold mb-0">{stat.statName}</h2>
             <div className="flex flex-col items-start">

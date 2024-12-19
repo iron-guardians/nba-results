@@ -13,7 +13,7 @@ const Header = () => {
           />
         </Link>
 
-        {/* Navegación */}
+        {/* Navegation */}
         <ul className="flex space-x-6 text-lg">
           <li>
             <Link
