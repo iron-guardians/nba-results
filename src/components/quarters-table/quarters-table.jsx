@@ -5,7 +5,7 @@ function QuartersTable({ game, teams }) {
   
     return (
       <div
-        className="overflow-x-auto rounded-lg border border-gray-700 shadow-md hover:shadow-lg transition-transform duration-600 p-4">
+        className="overflow-x-auto shadow-md hover:shadow-lg transition-transform duration-600 p-4">
         <table className="min-w-full table-auto border-collapse">
           <thead>
             <tr className="bg-gray-900 text-white">

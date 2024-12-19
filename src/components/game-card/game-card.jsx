@@ -32,7 +32,7 @@ function GameCard({ game }) {
         {/* Score */}
         {(game.status.short === 3) ? (
           <div className="text-center flex flex-col justify-center mx-4">
-            <h2 className="text-2xl font-bold text-white relative">
+            <h2 className="text-3xl font-bold text-white relative">
               <span className={`${game.scores.visitors.points > game.scores.home.points ? 'text-orange-400 glow' : 'text-gray-400'}`}>
                 {game.scores.visitors.points}
               </span>
