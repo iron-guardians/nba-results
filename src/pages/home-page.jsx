@@ -29,11 +29,6 @@ function HomePage() {
       {/* Weekly Calendar */}
       <WeeklyCalendar onDayClick={(selectedDay) => setCurrentDate(selectedDay)} />
 
-      {/* Date selected */}
-      <div className="text-center text-xl font-bold my-4">
-        {currentDate && currentDate.format("MMMM D, YYYY")}
-      </div>
-
       {/* Match Grid */}
       <div className="container mx-auto pt-12 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-4 max-w-screen-lg">
         {todayGames.length > 0 ? (
