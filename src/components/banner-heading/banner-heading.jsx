@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="relative bg-gray-800 text-white py-12 px-6 overflow-hidden shadow-lg" style={{backgroundImage: "url('/images/court-banner.png')", backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
+    <div className="relative bg-gray-800 text-white py-12 px-10 overflow-hidden shadow-lg" style={{backgroundImage: "url('/images/court-banner.png')", backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
       {/* Principal Container */}
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         {/* Principal Text */}
@@ -11,9 +11,10 @@ const Banner = () => {
           <span className="text-orange-500">Dunk</span><span className="text-blue-400">Nation</span>
           </h1>
           <p className="text-gray-400 mb-6 text-lg">
-            Where <span className="text-orange-500">basketball</span> meets{" "}
-            <span className="text-blue-400">data</span>
+          Where <span className="text-orange-500 font-bold">basketball</span> meets{" "}
+          <span className="text-blue-400 font-bold">data</span>
           </p>
+
           {/* Buttons */}
           <div className="flex justify-center md:justify-start gap-4">
             <a

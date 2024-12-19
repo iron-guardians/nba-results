@@ -5,18 +5,26 @@ import standings from "../data/standings.json";
 import QuartersTable from "../components/quarters-table/quarters-table";
 import StatComparer from "../components/stat-comparer/stat-comparer";
 import gameStats from "../data/game-stat-example.json";
+import teamsData from "../data/teams-data.json";
 
 function GamePage() {
   const { gameId } = useParams();
+
   const gameData = gamesData.response.find((g) => g.id === parseInt(gameId, 10));
+
   const visitorTeamStanding = standings.response.find(
     (standing) => standing.team.id === gameData.teams.visitors.id
   );
   const homeTeamStanding = standings.response.find(
     (standing) => standing.team.id === gameData.teams.home.id
   );
+
   const visitorStats = gameStats.response[1].statistics[0];
   const homeStats = gameStats.response[0].statistics[0];
+
+  const visitorTeam = teamsData.find(team => team.id === visitorTeamStanding.team.id);
+  const homeTeam = teamsData.find(team => team.id === homeTeamStanding.team.id);
+
   // If gameData does not exist, we show an error message
   if (!gameData) {
     return (
@@ -26,20 +34,22 @@ function GamePage() {
     );
   }
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-screen pt-40">
       {/* Principal Container */}
-      <div className="container mx-auto pt-32 pb-12 px-4">
+      <div className="container mx-auto pt-30 pb-12 px-4">
         {/* Game Header */}
         <div className="mb-10">
-          <GameHeading game={gameData} teams={[homeTeamStanding, visitorTeamStanding]} />
+          <GameHeading game={gameData} teams={[visitorTeamStanding, homeTeamStanding]} />
         </div>
+  
         {/* Quarters table */}
         <div className="mb-10">
           <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
             Summary by quarters
           </h2>
-          <QuartersTable game={gameData} teams={[homeTeamStanding, visitorTeamStanding]} />
+          <QuartersTable game={gameData} teams={[visitorTeam, homeTeam]} />
         </div>
+  
         {/* Stats comparer */}
         <div>
           <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
@@ -50,10 +60,10 @@ function GamePage() {
               stat={{
                 statName: "Field Goals",
                 isPercentage: true,
-                visitorsTeam: visitorTeamStanding.team,
+                visitorsTeam: visitorTeam,
                 visitorsMade: visitorStats.fgm,
                 visitorsAttempted: visitorStats.fga,
-                homeTeam: homeTeamStanding.team,
+                homeTeam: homeTeam,
                 homeMade: homeStats.fgm,
                 homeAttempted: homeStats.fga,
               }}
@@ -62,10 +72,10 @@ function GamePage() {
               stat={{
                 statName: "3 Pointers",
                 isPercentage: true,
-                visitorsTeam: visitorTeamStanding.team,
+                visitorsTeam: visitorTeam,
                 visitorsMade: visitorStats.tpm,
                 visitorsAttempted: visitorStats.tpa,
-                homeTeam: homeTeamStanding.team,
+                homeTeam: homeTeam,
                 homeMade: homeStats.tpm,
                 homeAttempted: homeStats.tpa,
               }}
@@ -74,9 +84,9 @@ function GamePage() {
               stat={{
                 statName: "Total Rebounds",
                 isPercentage: false,
-                visitorsTeam: visitorTeamStanding.team,
+                visitorsTeam: visitorTeam,
                 visitorsMade: visitorStats.totReb,
-                homeTeam: homeTeamStanding.team,
+                homeTeam: homeTeam,
                 homeMade: homeStats.totReb,
               }}
             />
@@ -84,9 +94,9 @@ function GamePage() {
               stat={{
                 statName: "Assists",
                 isPercentage: false,
-                visitorsTeam: visitorTeamStanding.team,
+                visitorsTeam: visitorTeam,
                 visitorsMade: visitorStats.assists,
-                homeTeam: homeTeamStanding.team,
+                homeTeam: homeTeam,
                 homeMade: homeStats.assists,
               }}
             />
@@ -95,5 +105,6 @@ function GamePage() {
       </div>
     </div>
   );
+  
 }
 export default GamePage;

@@ -1,0 +1,272 @@
+[
+    {
+        "id": 2,
+        "name": "Boston Celtics",
+        "nickname": "Celtics",
+        "code": "BOS",
+        "logo": "https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg",
+        "homeColor": "#007A33",
+        "visitorColor": "#F1F1F1"
+    },
+    {
+        "id": 24,
+        "name": "New York Knicks",
+        "nickname": "Knicks",
+        "code": "NYK",
+        "logo": "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg",
+        "homeColor": "#006BB6",
+        "visitorColor": "#F58426"
+    },
+    {
+        "id": 4,
+        "name": "Brooklyn Nets",
+        "nickname": "Nets",
+        "code": "BKN",
+        "logo": "https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg",
+        "homeColor": "#000000",
+        "visitorColor": "#FFFFFF"
+    },
+    {
+        "id": 27,
+        "name": "Philadelphia 76ers",
+        "nickname": "76ers",
+        "code": "PHI",
+        "logo": "https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg",
+        "homeColor": "#006BB6",
+        "visitorColor": "#E4002B"
+    },
+    {
+        "id": 38,
+        "name": "Toronto Raptors",
+        "nickname": "Raptors",
+        "code": "TOR",
+        "logo": "https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg",
+        "homeColor": "#CE1141",
+        "visitorColor": "#000000"
+    },
+    {
+        "id": 7,
+        "name": "Cleveland Cavaliers",
+        "nickname": "Cavaliers",
+        "code": "CLE",
+        "logo": "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg",
+        "homeColor": "#6A1D1F",
+        "visitorColor": "#FDBB30"
+    },
+    {
+        "id": 21,
+        "name": "Milwaukee Bucks",
+        "nickname": "Bucks",
+        "code": "MIL",
+        "logo": "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg",
+        "homeColor": "#00471B",
+        "visitorColor": "#E0B97F"
+    },
+    {
+        "id": 15,
+        "name": "Indiana Pacers",
+        "nickname": "Pacers",
+        "code": "IND",
+        "logo": "https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg",
+        "homeColor": "#002D62",
+        "visitorColor": "#FDBB30"
+    },
+    {
+        "id": 6,
+        "name": "Chicago Bulls",
+        "nickname": "Bulls",
+        "code": "CHI",
+        "logo": "https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg",
+        "homeColor": "#C8102E",
+        "visitorColor": "#000000"
+    },
+    {
+        "id": 10,
+        "name": "Detroit Pistons",
+        "nickname": "Pistons",
+        "code": "DET",
+        "logo": "https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg",
+        "homeColor": "#006BB6",
+        "visitorColor": "#C8102E"
+    },
+    {
+        "id": 26,
+        "name": "Orlando Magic",
+        "nickname": "Magic",
+        "code": "ORL",
+        "logo": "https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg",
+        "homeColor": "#0077C0",
+        "visitorColor": "#F1C40F"
+    },
+    {
+        "id": 20,
+        "name": "Miami Heat",
+        "nickname": "Heat",
+        "code": "MIA",
+        "logo": "https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg",
+        "homeColor": "#98002E",
+        "visitorColor": "#F1F1F1"
+    },
+    {
+        "id": 1,
+        "name": "Atlanta Hawks",
+        "nickname": "Hawks",
+        "code": "ATL",
+        "logo": "https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg",
+        "homeColor": "#E03A3E",
+        "visitorColor": "#C1D32F"
+    },
+    {
+        "id": 5,
+        "name": "Charlotte Hornets",
+        "nickname": "Hornets",
+        "code": "CHA",
+        "logo": "https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg",
+        "homeColor": "#00788C",
+        "visitorColor": "#A1C6EA"
+    },
+    {
+        "id": 41,
+        "name": "Washington Wizards",
+        "nickname": "Wizards",
+        "code": "WAS",
+        "logo": "https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg",
+        "homeColor": "#002B5C",
+        "visitorColor": "#E31837"
+    },
+    {
+        "id": 25,
+        "name": "Oklahoma City Thunder",
+        "nickname": "Thunder",
+        "code": "OKC",
+        "logo": "https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg",
+        "homeColor": "#007AC1",
+        "visitorColor": "#F05133"
+    },
+    {
+        "id": 9,
+        "name": "Denver Nuggets",
+        "nickname": "Nuggets",
+        "code": "DEN",
+        "logo": "https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg",
+        "homeColor": "#0E1A33",
+        "visitorColor": "#F1C40F"
+    },
+    {
+        "id": 22,
+        "name": "Minnesota Timberwolves",
+        "nickname": "Timberwolves",
+        "code": "MIN",
+        "logo": "https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg",
+        "homeColor": "#006F8E",
+        "visitorColor": "#7A7A7A"
+    },
+    {
+        "id": 29,
+        "name": "Portland Trail Blazers",
+        "nickname": "Trail Blazers",
+        "code": "POR",
+        "logo": "https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg",
+        "homeColor": "#E03A3E",
+        "visitorColor": "#000000"
+    },
+    {
+        "id": 40,
+        "name": "Utah Jazz",
+        "nickname": "Jazz",
+        "code": "UTA",
+        "logo": "https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg",
+        "homeColor": "#002B5C",
+        "visitorColor": "#F9A61A"
+    },
+    {
+        "id": 11,
+        "name": "Golden State Warriors",
+        "nickname": "Warriors",
+        "code": "GSW",
+        "logo": "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg",
+        "homeColor": "#006BB6",
+        "visitorColor": "#FDB927"
+    },
+    {
+        "id": 28,
+        "name": "Phoenix Suns",
+        "nickname": "Suns",
+        "code": "PHX",
+        "logo": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg",
+        "homeColor": "#1D1160",
+        "visitorColor": "#E56020"
+    },
+    {
+        "id": 16,
+        "name": "LA Clippers",
+        "nickname": "Clippers",
+        "code": "LAC",
+        "logo": "https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg",
+        "homeColor": "#006BB6",
+        "visitorColor": "#F1F1F1"
+    },
+    {
+        "id": 17,
+        "name": "Los Angeles Lakers",
+        "nickname": "Lakers",
+        "code": "LAL",
+        "logo": "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
+        "homeColor": "#552582",
+        "visitorColor": "#FDB927"
+    },
+    {
+        "id": 30,
+        "name": "Sacramento Kings",
+        "nickname": "Kings",
+        "code": "SAC",
+        "logo": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg",
+        "homeColor": "#5A2D84",
+        "visitorColor": "#63707D"
+    },
+    {
+        "id": 19,
+        "name": "Memphis Grizzlies",
+        "nickname": "Grizzlies",
+        "code": "MEM",
+        "logo": "https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg",
+        "homeColor": "#5D76A9",
+        "visitorColor": "#E3B96E"
+    },
+    {
+        "id": 14,
+        "name": "Houston Rockets",
+        "nickname": "Rockets",
+        "code": "HOU",
+        "logo": "https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg",
+        "homeColor": "#C8102E",
+        "visitorColor": "#B1B3B3"
+    },
+    {
+        "id": 8,
+        "name": "Dallas Mavericks",
+        "nickname": "Mavericks",
+        "code": "DAL",
+        "logo": "https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg",
+        "homeColor": "#006F8E",
+        "visitorColor": "#B8B8B8"
+    },
+    {
+        "id": 31,
+        "name": "San Antonio Spurs",
+        "nickname": "Spurs",
+        "code": "SAS",
+        "logo": "https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg",
+        "homeColor": "#000000",
+        "visitorColor": "#C4CED4"
+    },
+    {
+        "id": 23,
+        "name": "New Orleans Pelicans",
+        "nickname": "Pelicans",
+        "code": "NOP",
+        "logo": "https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg",
+        "homeColor": "#0C2340",
+        "visitorColor": "#E31837"
+    }
+]
