@@ -1,7 +1,9 @@
 import GameCard from "../components/game-card/game-card";
 import gamesData from "../data/games.json";
-import { Link } from "react-router-dom";
 import Banner from "../components/banner-heading/banner-heading";
+import WeeklyCalendar from "../components/calendar/calendar"
+
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import dayjs from "../lib/dayjs";
 
@@ -25,7 +27,9 @@ function HomePage() {
       {/* Banner */}
       <Banner />
 
-      { currentDate}
+      <WeeklyCalendar />
+
+      { currentDate }
       {/* Match Grid */}
       <div className="container mx-auto pt-12 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-4 max-w-screen-lg">
         {todayGames.length > 0 ?
