@@ -14,45 +14,63 @@ function GameHeading({ game, teams }) {
     const homeTeam = homeTeamStanding.team;
 
     return (
-        <div className="flex flex-col items-center  justify-center p-4 w-full ">
-            <h2 className="text-2xl font-semibold mb-10">{dayjs(game.date.start).format('ll')}</h2>
-
-            <div className='flex items-center justify-between w-full'>
-                
-                
-                {/* Team 1 */}
-                <div className='flex items-center'>
-                    <h3 className="text-lg font-bold mt-2 mr-20 text-right">{visitorTeam.code}</h3>
-                    <div className="flex flex-col items-center">
-                        <img src={visitorTeam.logo} alt="Logo" className="max-h-28 max-w-28" />
-                        <p className="text-sm text-gray-500">{visitorTeamStanding.win.total} - {visitorTeamStanding.loss.total}</p>
-                    </div>
-                </div>
-                
-
-                {/* Score */}
-                <div className="text-center">
-                    
-                    <h2 className="text-2xl font-semibold">
-                    <span className={`${game.scores.visitors.points > game.scores.home.points ? 'font-extrabold' : ''}`}>{game.scores.visitors.points}</span>
-                    -
-                    <span className={`${game.scores.home.points > game.scores.visitors.points ? 'font-extrabold' : ''}`}>{game.scores.home.points}</span>
-                    </h2>
-                </div>
-
-                {/* Team 2 */}
-                <div className="flex flex-col items-center">
-                    <div className="w-28 h-28 flex items-center justify-center">
-                    <img src={homeTeam.logo} alt="Logo" className="max-h-28 max-w-28" />
-                    </div>
-                    <p className="text-sm text-gray-500">{homeTeamStanding.win.total} - {homeTeamStanding.loss.total}</p>
-                </div>
-                <h3 className="text-lg font-bold mt-2 ml-20">{homeTeam.code}</h3>
+        <div
+          className="flex flex-col items-center justify-center p-6 w-full hover:shadow-lg transition-transform duration-600"
+          style={{
+            background: `linear-gradient(135deg, ${visitorTeam.color} 0%, ${homeTeam.color} 100%)`,
+          }}
+        >
+          {/* Fecha del partido */}
+          <h2 className="text-3xl font-semibold mb-6 text-white text-center">
+            {dayjs(game.date.start).format("ll")}
+          </h2>
+      
+          {/* Equipos y marcador */}
+          <div className="flex items-center justify-center w-full text-white">
+            {/* Equipo visitante */}
+            <div className="flex flex-col items-center mx-8">
+              <img src={visitorTeam.logo} alt="Visitor Team Logo" className="max-h-28 max-w-28 mb-2" />
+              <h3 className="text-lg font-bold text-center">{visitorTeam.code}</h3>
+              <p className="text-sm text-gray-200">{`${visitorTeamStanding.win.total} - ${visitorTeamStanding.loss.total}`}</p>
             </div>
-
-            <h2 className="text-2xl font-semibold mt-10">{`${game.arena.name}, ${game.arena.city}`}</h2>
+      
+            {/* Marcador */}
+            <div className="flex flex-col items-center mx-8">
+              <h2 className="text-4xl font-bold">
+                <span
+                  className={`${
+                    game.scores.visitors.points > game.scores.home.points ? "text-orange-300 font-extrabold" : ""
+                  }`}
+                >
+                  {game.scores.visitors.points}
+                </span>
+                {" - "}
+                <span
+                  className={`${
+                    game.scores.home.points > game.scores.visitors.points ? "text-orange-300 font-extrabold" : ""
+                  }`}
+                >
+                  {game.scores.home.points}
+                </span>
+              </h2>
+            </div>
+      
+            {/* Equipo local */}
+            <div className="flex flex-col items-center mx-8">
+              <img src={homeTeam.logo} alt="Home Team Logo" className="max-h-28 max-w-28 mb-2" />
+              <h3 className="text-lg font-bold text-center">{homeTeam.code}</h3>
+              <p className="text-sm text-gray-200">{`${homeTeamStanding.win.total} - ${homeTeamStanding.loss.total}`}</p>
+            </div>
+          </div>
+      
+          {/* Información del estadio */}
+          <h2 className="text-xl font-semibold mt-6 text-white text-center">
+            {`${game.arena.name}, ${game.arena.city}`}
+          </h2>
         </div>
       );
+      
+      
 }
 
 export default GameHeading;

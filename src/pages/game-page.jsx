@@ -26,13 +26,14 @@ function GamePage() {
     );
   }
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div className="bg-gray-900 text-white min-h-screen pt-40">
       {/* Principal Container */}
-      <div className="container mx-auto pt-32 pb-12 px-4">
+      <div className="container mx-auto pt-30 pb-12 px-4">
         {/* Game Header */}
         <div className="mb-10">
           <GameHeading game={gameData} teams={[homeTeamStanding, visitorTeamStanding]} />
         </div>
+  
         {/* Quarters table */}
         <div className="mb-10">
           <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
@@ -40,6 +41,7 @@ function GamePage() {
           </h2>
           <QuartersTable game={gameData} teams={[homeTeamStanding, visitorTeamStanding]} />
         </div>
+  
         {/* Stats comparer */}
         <div>
           <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
@@ -95,5 +97,6 @@ function GamePage() {
       </div>
     </div>
   );
+  
 }
 export default GamePage;
