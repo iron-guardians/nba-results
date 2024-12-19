@@ -4,13 +4,14 @@ import isToday from 'dayjs/plugin/isToday';
 
 dayjs.extend(isToday);  // Activates the 'isToday' plugin inside of dayjs
 
-const WeeklyCalendar = () => {
+const WeeklyCalendar = ({ onDayClick }) => {
   const [currentDate, setCurrentDate] = useState(dayjs());
+  const [selectedDate, setSelectedDate] = useState(dayjs());
 
   const startOfWeek = currentDate.startOf('week');
 
-  const changeWeek = (offset) => {
-    setCurrentDate(currentDate.add(offset, 'week'));
+  const changeWeek = (interval) => {
+    setCurrentDate(currentDate.add(interval, 'week'));
   };
 
   const renderDaysOfWeek = () => {
@@ -20,9 +21,13 @@ const WeeklyCalendar = () => {
       days.push(
         <div
           key={i}
-          className={`flex flex-col items-center px-2 py-2 ${
-            day.isToday() ? 'font-extrabold text-black' : 'text-gray-500'
+          className={`flex flex-col items-center px-2 py-2 cursor-pointer ${
+            day.isSame(selectedDate, 'day') ? 'font-extrabold text-blue-500' : 'text-gray-500'
           }`}
+          onClick={() => {
+            setSelectedDate(day);
+            onDayClick?.(day);  // ? Ensures that the code doesn't throw an error in case onDayClick isn't defined
+          }}
         >
           <span className="uppercase text-sm">{day.format('ddd')}</span>
           <span className="text-s">{day.format('MMM D')}</span>
