@@ -22,10 +22,8 @@ const WeeklyCalendar = ({ onDayClick }) => {
       days.push(
         <div
           key={i}
-          className={`flex flex-col items-center px-2 py-2 cursor-pointer ${
-            day.isSame(selectedDate, "day")
-              ? "font-extrabold text-blue-500"
-              : "text-gray-500"
+          className={`flex flex-col items-center px-1 py-2 cursor-pointer ${
+            day.isSame(selectedDate, 'day') ? 'font-extrabold text-blue-500' : 'text-gray-500'
           }`}
           onClick={() => {
             setSelectedDate(day);
