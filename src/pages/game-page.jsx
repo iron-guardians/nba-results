@@ -44,7 +44,7 @@ function GamePage() {
   
         {/* Quarters table */}
         <div className="mb-10">
-          <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
+          <h2 className="text-3xl font-semibold text-blue-400 mb-8 text-center pt-20">
             Summary by quarters
           </h2>
           <QuartersTable game={gameData} teams={[visitorTeam, homeTeam]} />
@@ -52,7 +52,7 @@ function GamePage() {
   
         {/* Stats comparer */}
         <div>
-          <h2 className="text-2xl font-semibold text-blue-400 mb-4 text-center">
+          <h2 className="text-3xl font-semibold text-blue-400 mb-12 text-center pt-20">
             Stats Comparer
           </h2>
           <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-4 max-w-screen-lg">
