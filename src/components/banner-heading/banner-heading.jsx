@@ -37,9 +37,9 @@ const Banner = () => {
           <div className="relative w-60 h-60 md:w-80 md:h-80">
             {/* Stylized Ball and Hoop */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full bg-gradient-to-r from-blue-400 to-orange-500 rounded-full"></div>
+              <div className="w-full h-full bg-gradient-to-r from-blue-600 to-orange-500 rounded-full"></div>
               <img
-                src="/images/dunk-man.png" // Replace with route
+                src="/images/dunk-man1.png" // Replace with route
                 alt="Basketball Hoop"
                 className="absolute w-3/4 h-3/4 object-cover"
               />
