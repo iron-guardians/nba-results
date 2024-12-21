@@ -40,7 +40,7 @@ function GameHeading({ game, teams }) {
               <h2 className="text-4xl font-bold">
                 <span
                   className={`${
-                    game.scores.visitors.points > game.scores.home.points ? "text-orange-300 font-extrabold" : ""
+                    game.scores.visitors.points > game.scores.home.points ? "text-orange-300 font-extrabold animate-alphaBlink" : ""
                   }`}
                 >
                   {game.scores.visitors.points}
@@ -48,7 +48,7 @@ function GameHeading({ game, teams }) {
                 {" - "}
                 <span
                   className={`${
-                    game.scores.home.points > game.scores.visitors.points ? "text-orange-300 font-extrabold" : ""
+                    game.scores.home.points > game.scores.visitors.points ? "text-orange-300 font-extrabold animate-alphaBlink" : ""
                   }`}
                 >
                   {game.scores.home.points}
