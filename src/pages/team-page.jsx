@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import teamsData from "../data/teams-data.json"; // Información de equipos
-import standings from "../data/standings.json"; // Clasificaciones
-import gameStats from "../data/game-stat-example.json"; // Estadísticas de ejemplo
+import teamsData from "../data/teams-data.json";
+import standings from "../data/standings.json";
+import gameStats from "../data/game-stat-example.json";
+import gamesData from "../data/games.json";
+import GameCard from "../components/game-card/game-card";
 
 function TeamPage() {
-  const { teamId } = useParams(); // Obtener el ID del equipo desde la URL
+  const { teamId } = useParams();
   const [teamInfo, setTeamInfo] = useState(null);
   const [teamStats, setTeamStats] = useState([]);
+  const [teamGames, setTeamGames] = useState([]);
 
   useEffect(() => {
-    // Buscar la información del equipo por su ID
     const team = teamsData.find((team) => team.id === parseInt(teamId, 10));
     setTeamInfo(team);
 
-    // Obtener las estadísticas relacionadas con el equipo
     const stats = gameStats.response.filter(
       (stat) => stat.team.id === parseInt(teamId, 10)
     );
     setTeamStats(stats);
+
+    const games = gamesData.response.filter(
+      (game) =>
+        game.teams.home.id === parseInt(teamId, 10) ||
+        game.teams.visitors.id === parseInt(teamId, 10)
+    );
+    setTeamGames(games);
   }, [teamId]);
 
   if (!teamInfo) {
@@ -81,6 +89,23 @@ function TeamPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Partidos Jugados */}
+        <div className="mb-10">
+          <h2 className="text-3xl font-semibold text-blue-400 mb-4">All Team Games</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+            {teamGames.length > 0 ? (
+              teamGames.map((game) => (
+                <GameCard 
+                  key={game.id}
+                  game={game} 
+                />
+              ))
+            ) : (
+              <p className="text-gray-400">No games available for this team.</p>
+            )}
           </div>
         </div>
       </div>
