@@ -58,8 +58,7 @@ const WeeklyCalendar = ({ onDayClick }) => {
     return (
       <div
         ref={calendarRef} // Reference for click detection
-        className="absolute top-40 right-5 bg-gray-800 text-white shadow-lg rounded-lg p-6" // Adjusted top to 'top-40'
-        style={{ width: "400px" }}
+        className="absolute top-full left-0 z-50 w-full bg-gray-800 text-white shadow-lg rounded-lg p-6"
       >
         {/* Calendar Header */}
         <div className="flex justify-between items-center mb-4">
@@ -134,9 +133,9 @@ const WeeklyCalendar = ({ onDayClick }) => {
   };
 
   return (
-    <div className="relative bg-gray-900 text-white min-h-screen">
+    <div className="relative bg-gray-900 text-white">
       {/* Weekly Calendar */}
-      <div className="absolute top-8 left-0 w-full z-10 px-4"> {/* Adjusted top to 'top-14' */}
+      <div className="w-full z-10">
         <div className="container mx-auto">
           <div className="flex items-center justify-between p-4 bg-gray-800 shadow-md rounded-lg">
             <button
@@ -175,3 +174,4 @@ const WeeklyCalendar = ({ onDayClick }) => {
 };
 
 export default WeeklyCalendar;
+

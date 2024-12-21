@@ -67,6 +67,19 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 768px) {
+  .bg-gray-800 {
+    background-attachment: scroll; /* Cambia el comportamiento en móviles */
+  }
+}
+
+.stat-container {
+  width: 100vw; /* Abarca todo el ancho de la ventana */
+}
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

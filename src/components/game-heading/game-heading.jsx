@@ -23,7 +23,7 @@ function GameHeading({ game, teams }) {
           }}
         >
           {/* Match Date */}
-          <h2 className="text-3xl font-semibold mb-6 text-white text-center">
+          <h2 className="text-2xl font-semibold mt-4 mb-6 text-white text-center">
             {dayjs(game.date.start).format("ll")}
           </h2>
       
@@ -70,7 +70,7 @@ function GameHeading({ game, teams }) {
           </div>
       
           {/* Stadium information */}
-          <h2 className="text-xl font-semibold mt-6 text-white text-center">
+          <h2 className="text-l font-semibold mt-6 mb-4 text-white text-center">
             {`${game.arena.name}, ${game.arena.city}`}
           </h2>
         </div>

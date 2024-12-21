@@ -31,7 +31,10 @@ function HomePage() {
       <WeeklyCalendar onDayClick={(selectedDay) => setCurrentDate(selectedDay)} />
 
       {/* Match Grid */}
-      <GameCardContainer className="bg-gray-900">
+      <GameCardContainer 
+        className="bg-gray-900"
+        matchDate={currentDate.format("MMMM DD, YYYY")} // Pasar la fecha al GameCardContainer 
+        >  
         {todayGames.length > 0 ? (
           todayGames.map((game) => (
             <Link
