@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
 function QuartersTable({ game, teams }) {
     const [visitorTeam, homeTeam] = teams;
 

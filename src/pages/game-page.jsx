@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GameHeading from "../components/game-heading/game-heading";
 import gamesData from "../data/games.json";
 import standings from "../data/standings.json";
@@ -11,6 +11,7 @@ function GamePage() {
   const { gameId } = useParams();
 
   const gameData = gamesData.response.find((g) => g.id === parseInt(gameId, 10));
+  const isGamePlayed = gameData.status.short === 3;
 
   const visitorTeamStanding = standings.response.find(
     (standing) => standing.team.id === gameData.teams.visitors.id
@@ -18,12 +19,32 @@ function GamePage() {
   const homeTeamStanding = standings.response.find(
     (standing) => standing.team.id === gameData.teams.home.id
   );
-
+    
   const visitorStats = gameStats.response[1].statistics[0];
   const homeStats = gameStats.response[0].statistics[0];
 
   const visitorTeam = teamsData.find(team => team.id === visitorTeamStanding.team.id);
   const homeTeam = teamsData.find(team => team.id === homeTeamStanding.team.id);
+
+  let previousGames = [];
+
+  if(!isGamePlayed) {
+      previousGames = gamesData.response.filter((previousGame) => {
+      const currentDate = new Date();
+      const gameDate = new Date(previousGame.date);
+      const beforeToday = gameDate.isBefore(currentDate);
+  
+      const sameTeams =
+        (previousGame.teams.home.id === homeTeam.id &&
+          previousGame.teams.visitor.id === visitorTeam.id) ||
+        (previousGame.teams.home.id === visitorTeam.id &&
+          previousGame.teams.visitor.id === homeTeam.id);
+  
+      return beforeToday && sameTeams;
+    });
+  }
+
+  console.log(previousGames);
 
   // If gameData does not exist, we show an error message
   if (!gameData) {
@@ -44,10 +65,31 @@ function GamePage() {
   
         {/* Quarters table */}
         <div className="mb-10">
-          <h2 className="text-3xl font-semibold text-blue-400 mb-8 text-center pt-20">
-            Summary by quarters
-          </h2>
-          <QuartersTable game={gameData} teams={[visitorTeam, homeTeam]} />
+          {isGamePlayed ? (
+            <div>
+              <h2 className="text-3xl font-semibold text-blue-400 mb-8 text-center pt-20">
+                Summary by quarters
+              </h2>
+              <QuartersTable game={gameData} teams={[visitorTeam, homeTeam]} />
+            </div>
+          ) : (
+            <div>
+            <h2 className="text-3xl font-semibold text-blue-400 mb-8 text-center pt-20">
+              Previous Games
+            </h2>
+            {previousGames.map((game) => (
+              
+                <Link
+                  className="w-full mx-auto transform hover:scale-105 transition-transform duration-300"
+                  key={game.id}
+                  to={`/game/${game.id}`}
+                >
+                  <GameCard key={game.id} game={game} />
+                </Link>            
+            ))}
+            </div>
+          )}
+
         </div>
   
         {/* Stats comparer */}
