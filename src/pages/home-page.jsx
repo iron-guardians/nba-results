@@ -1,9 +1,8 @@
-import GameCard from "../components/game-card/game-card";
+import GameCardContainer from "../components/game-card-container/game-card-container";
 import gamesData from "../data/games.json";
 import Banner from "../components/banner-heading/banner-heading";
 import WeeklyCalendar from "../components/calendar/calendar";
 
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import dayjs from "../lib/dayjs";
 
@@ -22,7 +21,7 @@ function HomePage() {
   }, [currentDate]);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen pt-32">
+    <div className="bg-gray-900 text-white min-h-screen">
       {/* Banner */}
       <Banner />
 
@@ -33,13 +32,7 @@ function HomePage() {
       <div className="container mx-auto pt-12 grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-4 max-w-screen-lg">
         {todayGames.length > 0 ? (
           todayGames.map((game) => (
-            <Link
-              className="w-full mx-auto transform hover:scale-105 transition-transform duration-300"
-              key={game.id}
-              to={`/game/${game.id}`}
-            >
-              <GameCard key={game.id} game={game} />
-            </Link>
+            <GameCardContainer key={game.id} game={game} />
           ))
         ) : (
           <h1 className="text-4xl font-bold">No games found</h1>

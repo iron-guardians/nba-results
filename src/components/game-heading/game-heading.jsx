@@ -16,13 +16,14 @@ function GameHeading({ game, teams }) {
 
     return (
         <div
-          className="flex flex-col items-center justify-center p-6 w-full hover:shadow-lg transition-transform duration-600"
+          className="flex flex-col items-center justify-center p-6 w-full hover:shadow-lg transition-transform duration-600 shadow-inner"
           style={{
             background: `linear-gradient(135deg, ${visitorTeam.visitorColor} 0%, #111827 50%,  ${homeTeam.homeColor} 100%)`,
+            boxShadow: "inset 0 6px 12px rgba(0, 0, 0, 0.7), inset 0 -6px 12px rgba(0, 0, 0, 0.7)",
           }}
         >
           {/* Fecha del partido */}
-          <h2 className="text-3xl font-semibold mb-6 text-white text-center">
+          <h2 className="text-2xl font-semibold mb-6 mt-10 text-white text-center">
             {dayjs(game.date.start).format("ll")}
           </h2>
       
@@ -65,7 +66,7 @@ function GameHeading({ game, teams }) {
           </div>
       
           {/* Información del estadio */}
-          <h2 className="text-xl font-semibold mt-6 text-white text-center">
+          <h2 className="text-l font-semibold mb-7 mt-7 text-white text-center">
             {`${game.arena.name}, ${game.arena.city}`}
           </h2>
         </div>
