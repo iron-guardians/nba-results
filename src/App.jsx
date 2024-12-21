@@ -3,6 +3,7 @@ import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 import Header from "./components/header/header"
 import HomePage from "./pages/home-page"
 import GamePage from "./pages/game-page"
+import StandingsPage from "./pages/standings-page"; // Importar la nueva página
 import Footer from "./components/footer/footer"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/game/:gameId" element={<GamePage />}/>
+        <Route path="/standings" element={<StandingsPage />} />
 
       </Routes>
 
