@@ -6,6 +6,7 @@ import QuartersTable from "../components/quarters-table/quarters-table";
 import StatComparer from "../components/stat-comparer/stat-comparer";
 import gameStats from "../data/game-stat-example.json";
 import teamsData from "../data/teams-data.json";
+import GameCard from "../components/game-card/game-card";
 
 function GamePage() {
   const { gameId } = useParams();
@@ -31,16 +32,16 @@ function GamePage() {
   if(!isGamePlayed) {
       previousGames = gamesData.response.filter((previousGame) => {
       const currentDate = new Date();
-      const gameDate = new Date(previousGame.date);
-      const beforeToday = gameDate.isBefore(currentDate);
+      const gameDate = new Date(previousGame.date.start);
+      const beforeToday = gameDate < currentDate;
   
       const sameTeams =
         (previousGame.teams.home.id === homeTeam.id &&
-          previousGame.teams.visitor.id === visitorTeam.id) ||
+          previousGame.teams.visitors.id === visitorTeam.id) ||
         (previousGame.teams.home.id === visitorTeam.id &&
-          previousGame.teams.visitor.id === homeTeam.id);
+          previousGame.teams.visitors.id === homeTeam.id);
   
-      return beforeToday && sameTeams;
+      return beforeToday && sameTeams && previousGame.status.short === 3;
     });
   }
 
