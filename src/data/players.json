@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "LeBron James",
+      "team": "Los Angeles Lakers",
+      "photo": "./images/lebron.png",
+      "stats": {
+        "points": 25.4,
+        "rebounds": 7.9,
+        "assists": 8.3
+      }
+    },
+    {
+      "id": 2,
+      "name": "Stephen Curry",
+      "team": "Golden State Warriors",
+      "photo": "./images/curry.png",
+      "stats": {
+        "points": 29.5,
+        "rebounds": 5.2,
+        "assists": 6.1
+      }
+    },
+    {
+      "id": 3,
+      "name": "Kevin Durant",
+      "team": "Brooklyn Nets",
+      "photo": "./images/durant.png",
+      "stats": {
+        "points": 27.7,
+        "rebounds": 6.6,
+        "assists": 5.5
+      }
+    }
+  ]
+  
+  
+  
