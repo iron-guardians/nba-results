@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const StatComparerContainer = ({ children }) => {
+const StatComparerContainer = ({ children, className }) => {
   return (
-    <div className="rounded-lg shadow-lg w-full">
+    <div className={`rounded-lg shadow-lg w-full ${className}`}>
       <h2 className="text-3xl font-semibold text-blue-400 mb-10 text-center">
         Stats Comparer
       </h2>

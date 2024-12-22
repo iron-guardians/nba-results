@@ -100,7 +100,8 @@ function TeamPage() {
               teamGames.map((game) => (
                 <GameCard 
                   key={game.id}
-                  game={game} 
+                  game={game}
+                  standings={standings.response}
                 />
               ))
             ) : (

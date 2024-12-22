@@ -1,24 +1,69 @@
 import { Link, useParams } from "react-router-dom";
 import GameHeading from "../components/game-heading/game-heading";
-import gamesData from "../data/games.json";
-import standings from "../data/standings.json";
 import QuartersTable from "../components/quarters-table/quarters-table";
 import StatComparer from "../components/stat-comparer/stat-comparer";
 import gameStats from "../data/game-stat-example.json";
 import teamsData from "../data/teams-data.json";
 import GameCard from "../components/game-card/game-card";
 import StatComparerContainer from "../components/stat-comparer-container/stat-comparer-container";
+import { useEffect, useState } from "react";
+
+import * as DunkNationApi from "../services/api-service";
 
 function GamePage() {
   const { gameId } = useParams();
+  const [gameData, setGameData] = useState();
+  const [standings, setStandings] = useState();
+  const [previousGames, setPreviousGames] = useState([]);
 
-  const gameData = gamesData.response.find((g) => g.id === parseInt(gameId, 10));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings()])
+      .then(([gamesResponse, standingsResponse]) => {
+        const currentGame = gamesResponse.find((g) => g.id === parseInt(gameId, 10));
+        setGameData(currentGame);
+        setStandings(standingsResponse);
+
+        // If the game is not played, fetch previous games
+        if (currentGame?.status.short !== 3) {
+          const filteredGames = gamesResponse.filter((previousGame) => {
+            const currentDate = new Date();
+            const gameDate = new Date(previousGame.date.start);
+            const beforeToday = gameDate < currentDate;
+
+            const sameTeams =
+              (previousGame.teams.home.id === currentGame.teams.home.id &&
+                previousGame.teams.visitors.id === currentGame.teams.visitors.id) ||
+              (previousGame.teams.home.id === currentGame.teams.visitors.id &&
+                previousGame.teams.visitors.id === currentGame.teams.home.id);
+
+            return beforeToday && sameTeams && previousGame.status.short === 3;
+          });
+
+          setPreviousGames(filteredGames);
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [gameId]);
+
+  if (!gameData || !standings) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-red-500">
+        <h1 className="text-4xl font-bold">Loading game data...</h1>
+      </div>
+    );
+  }
+
   const isGamePlayed = gameData?.status.short === 3;
 
-  const visitorTeamStanding = standings.response.find(
+
+  console.log(standings);
+
+  const visitorTeamStanding = standings.find(
     (standing) => standing.team.id === gameData.teams.visitors.id
   );
-  const homeTeamStanding = standings.response.find(
+  const homeTeamStanding = standings.find(
     (standing) => standing.team.id === gameData.teams.home.id
   );
 
@@ -28,40 +73,13 @@ function GamePage() {
   const visitorTeam = teamsData.find((team) => team.id === visitorTeamStanding.team.id);
   const homeTeam = teamsData.find((team) => team.id === homeTeamStanding.team.id);
 
-  let previousGames = [];
-
-  if (!isGamePlayed) {
-    previousGames = gamesData.response.filter((previousGame) => {
-      const currentDate = new Date();
-      const gameDate = new Date(previousGame.date.start);
-      const beforeToday = gameDate < currentDate;
-
-      const sameTeams =
-        (previousGame.teams.home.id === homeTeam.id &&
-          previousGame.teams.visitors.id === visitorTeam.id) ||
-        (previousGame.teams.home.id === visitorTeam.id &&
-          previousGame.teams.visitors.id === homeTeam.id);
-
-      return beforeToday && sameTeams && previousGame.status.short === 3;
-    });
-  }
-
-  // If gameData does not exist, show an error message
-  if (!gameData) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-red-500">
-        <h1 className="text-4xl font-bold">Game not found</h1>
-      </div>
-    );
-  }
-
   return (
     <>
-      <div className="bg-gray-900 text-white min-h-screen pt-40">
+      <div className="bg-gray-900 text-white min-h-screen pt-16">
         {/* Principal Container */}
-        <div className="container mx-auto pt-30 pb-12">
+        <div className="container pb-12">
           {/* Game Header */}
-          <div className="stat-container p-6 rounded-lg shadow-lg mb-10">
+          <div className="stat-container rounded-lg shadow-lg mb-10">
             <GameHeading game={gameData} teams={[visitorTeamStanding, homeTeamStanding]} />
           </div>
   
@@ -93,7 +111,7 @@ function GamePage() {
                         key={game.id}
                         to={`/game/${game.id}`}
                       >
-                        <GameCard key={game.id} game={game} currentGameDate={gameData.date.start} />
+                        <GameCard key={game.id} game={game} currentGameDate={gameData.date.start} standings={standings}/>
                       </Link>
                     ))
                   ) : (
@@ -105,7 +123,7 @@ function GamePage() {
           </div>
   
           {/* Stats Comparer */}
-          <StatComparerContainer>
+          <StatComparerContainer className=" w-screen p-6 rounded-lg shadow-lg mb-10">
             <StatComparer
               stat={{
                 statName: "Field Goals",

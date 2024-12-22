@@ -16,7 +16,7 @@ function GameHeading({ game, teams }) {
 
     return (
         <div
-          className="flex flex-col items-center justify-center p-6 w-full hover:shadow-lg transition-transform duration-600 shadow-inner"
+          className="flex flex-col items-center justify-center p-6 w-screen hover:shadow-lg transition-transform duration-600 shadow-inner"
           style={{
             background: `linear-gradient(135deg, ${visitorTeam.visitorColor} 0%, #111827 50%,  ${homeTeam.homeColor} 100%)`,
             boxShadow: "inset 0 6px 12px rgba(0, 0, 0, 0.7), inset 0 -6px 12px rgba(0, 0, 0, 0.7)",
