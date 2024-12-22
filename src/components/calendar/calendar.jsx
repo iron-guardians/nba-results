@@ -159,7 +159,7 @@ const WeeklyCalendar = ({ onDayClick }) => {
             </button>
             <button
               onClick={() => changeWeek(1)} // Navigate to next week
-              className="text-blue-400 text-2xl font-bold hover:text-blue-500 transition duration-300"
+              className="text-blue-400 text-2xl font-bold hover:text-blue-500 transition duration-300 ml-5"
             >
               &#8250;
             </button>
