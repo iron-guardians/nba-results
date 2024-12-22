@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 
-import standings from '../../data/standings.json';
 import teamsData from '../../data/teams-data.json';
 import dayjs from 'dayjs'; // Asegúrate de tener dayjs instalado para manejar las fechas
 
-function GameCard({ game, currentGameDate }) {
-  const visitorTeamStanding = standings.response.find(
+function GameCard({ game, currentGameDate, standings }) {
+
+  const visitorTeamStanding = standings.find(
     (standing) => standing.team.id === game.teams.visitors.id
   );
-  const homeTeamStanding = standings.response.find(
+  const homeTeamStanding = standings.find(
     (standing) => standing.team.id === game.teams.home.id
   );
 
