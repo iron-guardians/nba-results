@@ -40,7 +40,7 @@ function TeamPage() {
   return (
     <div className="bg-gray-900 text-white min-h-screen pt-40">
       <div className="container mx-auto pt-6 pb-12">
-        {/* Información Principal */}
+        {/* Principal information */}
         <div className="flex items-center mb-10">
           <img
             src={teamInfo.logo}
@@ -54,7 +54,7 @@ function TeamPage() {
           </div>
         </div>
 
-        {/* Clasificación */}
+        {/* Classification */}
         <div className="mb-10">
           <h2 className="text-3xl font-semibold text-blue-400 mb-4">Standings</h2>
           <ul className="bg-gray-800 p-4 rounded-lg shadow-md">
@@ -74,7 +74,7 @@ function TeamPage() {
           </ul>
         </div>
 
-        {/* Estadísticas del Equipo */}
+        {/* Team Stats */}
         <div className="mb-10">
           <h2 className="text-3xl font-semibold text-blue-400 mb-4">Team Stats</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -92,7 +92,7 @@ function TeamPage() {
           </div>
         </div>
 
-        {/* Partidos Jugados */}
+        {/* Matches played */}
         <div className="mb-10">
           <h2 className="text-3xl font-semibold text-blue-400 mb-4">All Team Games</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">

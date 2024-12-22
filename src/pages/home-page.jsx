@@ -33,10 +33,10 @@ function HomePage() {
 
   useEffect(() => {
     if (gamesData.length > 0) {
-      const fotmattedDate = currentDate.format("ll");
+      const formattedDate = currentDate.format("ll");
 
       const matchesFiltered = gamesData.filter(
-        (game) => dayjs(game.date.start).format("ll") === fotmattedDate
+        (game) => dayjs(game.date.start).format("ll") === formattedDate
       );
       setTodayGames(matchesFiltered);
     }
@@ -53,7 +53,7 @@ function HomePage() {
       {/* Match Grid */}
       <GameCardContainer 
         className="bg-gray-900"
-        matchDate={currentDate.format("MMMM DD, YYYY")} // Pasar la fecha al GameCardContainer 
+        matchDate={currentDate.format("MMMM DD, YYYY")} // Pass the date to the GameCardContainer 
         >  
         {todayGames.length > 0 ? (
           todayGames.map((game) => (

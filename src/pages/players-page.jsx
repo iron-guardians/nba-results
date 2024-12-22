@@ -1,8 +1,8 @@
 import React from "react";
-import playersData from "../data/players.json"; // Asegúrate de que la ruta sea correcta
+import playersData from "../data/players.json"; // Assures the route is the right one
 
 function PlayersPage() {
-  // Ordenar jugadores por puntos (ranking)
+  // Sort players by points (ranking
   const rankedPlayers = [...playersData].sort((a, b) => b.stats.points - a.stats.points);
 
   return (

@@ -3,8 +3,8 @@ import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 import Header from "./components/header/header"
 import HomePage from "./pages/home-page"
 import GamePage from "./pages/game-page"
-import StandingsPage from "./pages/standings-page"; // Importar la nueva página
-import PlayersPage from "./pages/players-page"; // Importar la nueva página
+import StandingsPage from "./pages/standings-page"; 
+import PlayersPage from "./pages/players-page"; 
 import TeamPage from "./pages/team-page";
 import Footer from "./components/footer/footer"
 
@@ -14,7 +14,7 @@ function App() {
     <div className="w-screen h-screen">
       <Header />
        
-        {/* ScrollToTop para controlar el desplazamiento al inicio */}
+        {/* ScrollToTop to control the scroll at the start */}
       <ScrollToTop />
 
       <Routes>

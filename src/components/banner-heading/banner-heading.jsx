@@ -10,8 +10,8 @@ const Banner = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed", // Efecto parallax
-        marginTop: "95px", // Espacio para compensar el Header fijo
+        backgroundAttachment: "fixed", // Parallax effect
+        marginTop: "95px", // Space to compensate for fixed Header
       }}
     >
       {/* Principal Container */}

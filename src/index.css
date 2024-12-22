@@ -69,15 +69,13 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   .bg-gray-800 {
-    background-attachment: scroll; /* Cambia el comportamiento en móviles */
+    background-attachment: scroll; /* Changing behaviour on mobile */
   }
 }
 
 .stat-container {
-  width: 100vw; /* Abarca todo el ancho de la ventana */
+  width: 100vw; /* Covers the entire width of the window */
 }
-
-
 
 
 @tailwind base;

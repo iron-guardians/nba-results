@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import teamsData from '../../data/teams-data.json';
-import dayjs from 'dayjs'; // Asegúrate de tener dayjs instalado para manejar las fechas
+import dayjs from 'dayjs'; // Assures you have dayjs installed to handle dates
 
 function GameCard({ game, currentGameDate, standings }) {
 
@@ -15,9 +15,9 @@ function GameCard({ game, currentGameDate, standings }) {
   const homeTeam = teamsData.find((team) => team.id === homeTeamStanding.team.id);
   const visitorTeam = teamsData.find((team) => team.id === visitorTeamStanding.team.id);
 
-  // Formatear la fecha del partido
+  // Formatting the match date
   const gameDate = dayjs(game.date.start);
-  const isDateBeforeCurrentGame = gameDate.isBefore(dayjs(currentGameDate), 'day'); // Comparar con la fecha del partido actual
+  const isDateBeforeCurrentGame = gameDate.isBefore(dayjs(currentGameDate), 'day'); // Compare with the current match date
   const formattedDate = gameDate.format('MMMM DD, YYYY');
 
   return (
@@ -64,14 +64,14 @@ function GameCard({ game, currentGameDate, standings }) {
           <p className="text-xs text-gray-400 mt-1">Points</p>
           {isDateBeforeCurrentGame && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
-          )} {/* Fecha del partido */}
+          )} {/* Match date */}
         </div>
       ) : (
         <div className="text-center flex flex-col justify-center mx-4">
           <span className="text-gray-400 text-sm font-medium">TO BE PLAYED</span>
           {isDateBeforeCurrentGame && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
-          )} {/* Fecha del partido */}
+          )} {/* Match date */}
         </div>
       )}
 

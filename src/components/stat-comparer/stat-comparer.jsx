@@ -3,16 +3,15 @@
 import StatLineBar from "./stat-line-bar";
 
 function StatComparer({ stat }) {
-  const bestStat = stat.visitorsMade > stat.homeMade ? stat.visitorsMade : stat.homeMade;
+  const bestStat =
+    stat.visitorsMade > stat.homeMade ? stat.visitorsMade : stat.homeMade;
 
   return (
-    <div
-      className="space-y-4 mt-4 w-96 mb-4 p-4 shadow-md hover:shadow-lg transition-transform duration-600"
-          >
-      {/* Título de la estadística */}
+    <div className="space-y-4 mt-4 w-96 mb-4 p-4 shadow-md hover:shadow-lg transition-transform duration-600">
+      {/* Stats title */}
       <h2 className="text-lg font-semibold text-white">{stat.statName}</h2>
 
-      {/* Barras de estadísticas */}
+      {/* Stats bar */}
       <div className="flex flex-col items-start space-y-4">
         <StatLineBar
           stat={{
@@ -39,4 +38,3 @@ function StatComparer({ stat }) {
 }
 
 export default StatComparer;
-

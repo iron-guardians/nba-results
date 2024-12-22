@@ -5,8 +5,8 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Desplaza la página al inicio
-  }, [pathname]); // Ejecuta esto cada vez que cambie la ruta
+    window.scrollTo(0, 0); // Scroll to top
+  }, [pathname]); // Run this every time the path changes
 
   return null;
 }
