@@ -6,7 +6,8 @@
         "code": "BOS",
         "logo": "https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg",
         "homeColor": "#007A33",
-        "visitorColor": "#F1F1F1"
+        "visitorColor": "#F1F1F1",
+        "city": "Boston"
     },
     {
         "id": 24,
@@ -15,7 +16,8 @@
         "code": "NYK",
         "logo": "https://cdn.nba.com/logos/nba/1610612752/primary/L/logo.svg",
         "homeColor": "#006BB6",
-        "visitorColor": "#F58426"
+        "visitorColor": "#F58426",
+        "city": "New York"
     },
     {
         "id": 4,
@@ -24,7 +26,8 @@
         "code": "BKN",
         "logo": "https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg",
         "homeColor": "#000000",
-        "visitorColor": "#FFFFFF"
+        "visitorColor": "#FFFFFF",
+        "city": "Brooklyn"
     },
     {
         "id": 27,
@@ -33,7 +36,8 @@
         "code": "PHI",
         "logo": "https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg",
         "homeColor": "#006BB6",
-        "visitorColor": "#E4002B"
+        "visitorColor": "#E4002B",
+        "city": "Philadelphia"
     },
     {
         "id": 38,
@@ -42,7 +46,8 @@
         "code": "TOR",
         "logo": "https://cdn.nba.com/logos/nba/1610612761/primary/L/logo.svg",
         "homeColor": "#CE1141",
-        "visitorColor": "#000000"
+        "visitorColor": "#000000",
+        "city": "Toronto"
     },
     {
         "id": 7,
@@ -51,7 +56,8 @@
         "code": "CLE",
         "logo": "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg",
         "homeColor": "#6A1D1F",
-        "visitorColor": "#FDBB30"
+        "visitorColor": "#FDBB30",
+        "city": "Cleveland"
     },
     {
         "id": 21,
@@ -60,7 +66,8 @@
         "code": "MIL",
         "logo": "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg",
         "homeColor": "#00471B",
-        "visitorColor": "#E0B97F"
+        "visitorColor": "#E0B97F",
+        "city": "Milwaukee"
     },
     {
         "id": 15,
@@ -69,7 +76,8 @@
         "code": "IND",
         "logo": "https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg",
         "homeColor": "#002D62",
-        "visitorColor": "#FDBB30"
+        "visitorColor": "#FDBB30",
+        "city": "Indiana"
     },
     {
         "id": 6,
@@ -78,7 +86,8 @@
         "code": "CHI",
         "logo": "https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg",
         "homeColor": "#C8102E",
-        "visitorColor": "#000000"
+        "visitorColor": "#000000",
+        "city": "Chicago"
     },
     {
         "id": 10,
@@ -87,7 +96,8 @@
         "code": "DET",
         "logo": "https://cdn.nba.com/logos/nba/1610612765/primary/L/logo.svg",
         "homeColor": "#006BB6",
-        "visitorColor": "#C8102E"
+        "visitorColor": "#C8102E",
+        "city": "Detroit"
     },
     {
         "id": 26,
@@ -96,7 +106,8 @@
         "code": "ORL",
         "logo": "https://cdn.nba.com/logos/nba/1610612753/primary/L/logo.svg",
         "homeColor": "#0077C0",
-        "visitorColor": "#F1C40F"
+        "visitorColor": "#F1C40F",
+        "city": "Orlando"
     },
     {
         "id": 20,
@@ -105,7 +116,8 @@
         "code": "MIA",
         "logo": "https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg",
         "homeColor": "#98002E",
-        "visitorColor": "#F1F1F1"
+        "visitorColor": "#F1F1F1",
+        "city": "Miami"
     },
     {
         "id": 1,
@@ -114,7 +126,8 @@
         "code": "ATL",
         "logo": "https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg",
         "homeColor": "#E03A3E",
-        "visitorColor": "#C1D32F"
+        "visitorColor": "#C1D32F",
+        "city": "Atlanta"
     },
     {
         "id": 5,
@@ -123,7 +136,8 @@
         "code": "CHA",
         "logo": "https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg",
         "homeColor": "#00788C",
-        "visitorColor": "#A1C6EA"
+        "visitorColor": "#A1C6EA",
+        "city": "Charlotte"
     },
     {
         "id": 41,
@@ -132,7 +146,8 @@
         "code": "WAS",
         "logo": "https://cdn.nba.com/logos/nba/1610612764/primary/L/logo.svg",
         "homeColor": "#002B5C",
-        "visitorColor": "#E31837"
+        "visitorColor": "#E31837",
+        "city": "Washington"
     },
     {
         "id": 25,
@@ -141,7 +156,8 @@
         "code": "OKC",
         "logo": "https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg",
         "homeColor": "#007AC1",
-        "visitorColor": "#F05133"
+        "visitorColor": "#F05133",
+        "city": "Oklahoma City"
     },
     {
         "id": 9,
@@ -150,7 +166,8 @@
         "code": "DEN",
         "logo": "https://cdn.nba.com/logos/nba/1610612743/primary/L/logo.svg",
         "homeColor": "#0E1A33",
-        "visitorColor": "#F1C40F"
+        "visitorColor": "#F1C40F",
+        "city": "Denver"
     },
     {
         "id": 22,
@@ -159,7 +176,8 @@
         "code": "MIN",
         "logo": "https://cdn.nba.com/logos/nba/1610612750/primary/L/logo.svg",
         "homeColor": "#006F8E",
-        "visitorColor": "#7A7A7A"
+        "visitorColor": "#7A7A7A",
+        "city": "Minnesota"
     },
     {
         "id": 29,
@@ -168,7 +186,8 @@
         "code": "POR",
         "logo": "https://cdn.nba.com/logos/nba/1610612757/primary/L/logo.svg",
         "homeColor": "#E03A3E",
-        "visitorColor": "#000000"
+        "visitorColor": "#000000",
+        "city": "Portland"
     },
     {
         "id": 40,
@@ -177,7 +196,8 @@
         "code": "UTA",
         "logo": "https://cdn.nba.com/logos/nba/1610612762/primary/L/logo.svg",
         "homeColor": "#002B5C",
-        "visitorColor": "#F9A61A"
+        "visitorColor": "#F9A61A",
+        "city": "Utah"
     },
     {
         "id": 11,
@@ -186,7 +206,8 @@
         "code": "GSW",
         "logo": "https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg",
         "homeColor": "#006BB6",
-        "visitorColor": "#FDB927"
+        "visitorColor": "#FDB927",
+        "city": "Golden State"
     },
     {
         "id": 28,
@@ -195,7 +216,8 @@
         "code": "PHX",
         "logo": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg",
         "homeColor": "#1D1160",
-        "visitorColor": "#E56020"
+        "visitorColor": "#E56020",
+        "city": "Phoenix"
     },
     {
         "id": 16,
@@ -204,7 +226,8 @@
         "code": "LAC",
         "logo": "https://cdn.nba.com/logos/nba/1610612746/primary/L/logo.svg",
         "homeColor": "#006BB6",
-        "visitorColor": "#F1F1F1"
+        "visitorColor": "#F1F1F1",
+        "city": "Los Angeles"
     },
     {
         "id": 17,
@@ -213,7 +236,8 @@
         "code": "LAL",
         "logo": "https://cdn.nba.com/logos/nba/1610612747/primary/L/logo.svg",
         "homeColor": "#552582",
-        "visitorColor": "#FDB927"
+        "visitorColor": "#FDB927",
+        "city": "Los Angeles"
     },
     {
         "id": 30,
@@ -222,7 +246,8 @@
         "code": "SAC",
         "logo": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg",
         "homeColor": "#5A2D84",
-        "visitorColor": "#63707D"
+        "visitorColor": "#63707D",
+        "city": "Sacramento"
     },
     {
         "id": 19,
@@ -231,7 +256,8 @@
         "code": "MEM",
         "logo": "https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg",
         "homeColor": "#5D76A9",
-        "visitorColor": "#E3B96E"
+        "visitorColor": "#E3B96E",
+        "city": "Memphis"
     },
     {
         "id": 14,
@@ -240,7 +266,8 @@
         "code": "HOU",
         "logo": "https://cdn.nba.com/logos/nba/1610612745/primary/L/logo.svg",
         "homeColor": "#C8102E",
-        "visitorColor": "#B1B3B3"
+        "visitorColor": "#B1B3B3",
+        "city": "Houston"
     },
     {
         "id": 8,
@@ -249,7 +276,8 @@
         "code": "DAL",
         "logo": "https://cdn.nba.com/logos/nba/1610612742/primary/L/logo.svg",
         "homeColor": "#006F8E",
-        "visitorColor": "#B8B8B8"
+        "visitorColor": "#B8B8B8",
+        "city": "Dallas"
     },
     {
         "id": 31,
@@ -258,7 +286,8 @@
         "code": "SAS",
         "logo": "https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg",
         "homeColor": "#000000",
-        "visitorColor": "#C4CED4"
+        "visitorColor": "#C4CED4",
+        "city": "San Antonio"
     },
     {
         "id": 23,
@@ -267,6 +296,7 @@
         "code": "NOP",
         "logo": "https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg",
         "homeColor": "#0C2340",
-        "visitorColor": "#E31837"
+        "visitorColor": "#E31837",
+        "city": "New Orleans"
     }
 ]

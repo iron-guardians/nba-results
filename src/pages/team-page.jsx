@@ -50,7 +50,7 @@ function TeamPage() {
           <div>
             <h1 className="text-4xl font-bold text-blue-400">{teamInfo.name}</h1>
             <p className="text-gray-400">City: {teamInfo.city}</p>
-            <p className="text-gray-400">Abbreviation: {teamInfo.abbreviation}</p>
+            <p className="text-gray-400">Abbreviation: {teamInfo.code}</p>
           </div>
         </div>
 
