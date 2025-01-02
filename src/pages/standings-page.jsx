@@ -42,19 +42,19 @@ function StandingsPage() {
     <div className="bg-gray-900 text-white min-h-screen pt-40">
     <div className="container mx-auto pt-6 pb-12">
     <div className="text-center mb-6">
-          <button
-            onClick={() => setSelectedConference("east")}
-            className={`py-2 px-4 rounded-l-full border-r-0 ${selectedConference === "east" ? "bg-blue-500" : "bg-gray-700"} text-white`}
-          >
-            East Conference
-          </button>
-          <button
-            onClick={() => setSelectedConference("west")}
-            className={`py-2 px-4 rounded-r-full border-l-0 ${selectedConference === "west" ? "bg-blue-500" : "bg-gray-700"} text-white`}
-          >
-            West Conference
-          </button>
-        </div>
+        <button
+          onClick={() => setSelectedConference("east")}
+          className={`py-2 px-4 rounded-l-full border-r-0 ${selectedConference === "east" ? "bg-blue-500" : "bg-gray-700"} text-white`}
+        >
+          East Conference
+        </button>
+        <button
+          onClick={() => setSelectedConference("west")}
+          className={`py-2 px-4 rounded-r-full border-l-0 ${selectedConference === "west" ? "bg-blue-500" : "bg-gray-700"} text-white`}
+        >
+          West Conference
+        </button>
+      </div>
 
       {selectedConference === "east" && (
         <>

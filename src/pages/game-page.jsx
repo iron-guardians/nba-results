@@ -16,21 +16,24 @@ function GamePage() {
   const [standings, setStandings] = useState();
   const [previousGames, setPreviousGames] = useState([]);
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
     Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings()])
       .then(([gamesResponse, standingsResponse]) => {
-        const currentGame = gamesResponse.find((g) => g.id === parseInt(gameId, 10));
+        const currentGame = gamesResponse.find((g) => g.id === gameId);
+
         setGameData(currentGame);
         setStandings(standingsResponse);
 
         // If the game is not played, fetch previous games
-        if (currentGame?.status.short !== 3) {
-          const filteredGames = gamesResponse.filter((previousGame) => {
+        if (currentGame && currentGame.status.short !== 3) {
+            const filteredGames = gamesResponse.filter((previousGame) => {
             const currentDate = new Date();
-            const gameDate = new Date(previousGame.date.start);
-            const beforeToday = gameDate < currentDate;
+            const gameDate = new Date(previousGame?.date?.start || "");
+            const beforeToday = gameDate < currentDate && !isNaN(gameDate);
+
 
             const sameTeams =
               (previousGame.teams.home.id === currentGame.teams.home.id &&
@@ -57,10 +60,7 @@ function GamePage() {
 
   const isGamePlayed = gameData?.status.short === 3;
 
-
-  console.log(standings);
-
-  const visitorTeamStanding = standings.find(
+  const visitorTeamStanding = standings?.find(
     (standing) => standing.team.id === gameData.teams.visitors.id
   );
   const homeTeamStanding = standings.find(
