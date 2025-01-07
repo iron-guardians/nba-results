@@ -14,21 +14,22 @@ function GamePage() {
   const { gameId } = useParams();
   const [gameData, setGameData] = useState();
   const [standings, setStandings] = useState();
+  const [gameStats, setGameStats] = useState();
   const [previousGames, setPreviousGames] = useState([]);
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings()])
-      .then(([gamesResponse, standingsResponse]) => {
-        const currentGame = gamesResponse.find((g) => g.id === gameId);
-
-        setGameData(currentGame);
+    Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings(), DunkNationApi.getGameById(gameId), DunkNationApi.getGameStats(gameId)])
+      .then(([gamesResponse, standingsResponse, currentGameResponse, gameStatsResponse]) => {
+        console.log(currentGameResponse);
+        setGameData(currentGameResponse[0]);
         setStandings(standingsResponse);
+        setGameStats(gameStatsResponse);
 
         // If the game is not played, fetch previous games
-        if (currentGame && currentGame.status.short !== 3) {
+        if (currentGameResponse && currentGameResponse.status.short !== 3) {
             const filteredGames = gamesResponse.filter((previousGame) => {
             const currentDate = new Date();
             const gameDate = new Date(previousGame?.date?.start || "");
@@ -36,10 +37,10 @@ function GamePage() {
 
 
             const sameTeams =
-              (previousGame.teams.home.id === currentGame.teams.home.id &&
-                previousGame.teams.visitors.id === currentGame.teams.visitors.id) ||
-              (previousGame.teams.home.id === currentGame.teams.visitors.id &&
-                previousGame.teams.visitors.id === currentGame.teams.home.id);
+              (previousGame.teams.home.id === currentGameResponse.teams.home.id &&
+                previousGame.teams.visitors.id === currentGameResponse.teams.visitors.id) ||
+              (previousGame.teams.home.id === currentGameResponse.teams.visitors.id &&
+                previousGame.teams.visitors.id === currentGameResponse.teams.home.id);
 
             return beforeToday && sameTeams && previousGame.status.short === 3;
           });
@@ -50,7 +51,7 @@ function GamePage() {
       .catch((error) => console.error("Error fetching data:", error));
   }, [gameId]);
 
-  if (!gameData || !standings) {
+  if (!gameData || !standings || !gameStats) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-red-500">
         <h1 className="text-4xl font-bold">Loading game data...</h1>
@@ -67,8 +68,8 @@ function GamePage() {
     (standing) => standing.team.id === gameData.teams.home.id
   );
 
-  const visitorStats = gameStats.response[1].statistics[0];
-  const homeStats = gameStats.response[0].statistics[0];
+  const visitorStats = gameStats[1].statistics[0];
+  const homeStats = gameStats[0].statistics[0];
 
   const visitorTeam = teamsData.find((team) => team.id === visitorTeamStanding.team.id);
   const homeTeam = teamsData.find((team) => team.id === homeTeamStanding.team.id);
