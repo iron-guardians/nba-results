@@ -39,18 +39,22 @@ function StandingsPage() {
   }
 
   return (
+  
     <div className="bg-gray-900 text-white min-h-screen pt-40">
     <div className="container mx-auto pt-6 pb-12">
-    <div className="text-center mb-6">
+    <h1 className="text-6xl font-bold text-center pb-10 text-blue-400 mb-10">
+          Standings
+        </h1>
+    <div className="flex justify-center space-x-4 mb-6">
         <button
           onClick={() => setSelectedConference("east")}
-          className={`py-2 px-4 rounded-l-full border-r-0 ${selectedConference === "east" ? "bg-blue-500" : "bg-gray-700"} text-white`}
+          className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 ${selectedConference === "east" ? "bg-blue-500" : "bg-gray-700"} text-white`}
         >
           East Conference
         </button>
         <button
           onClick={() => setSelectedConference("west")}
-          className={`py-2 px-4 rounded-r-full border-l-0 ${selectedConference === "west" ? "bg-blue-500" : "bg-gray-700"} text-white`}
+          className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 ${selectedConference === "west" ? "bg-blue-500" : "bg-gray-700"} text-white`}
         >
           West Conference
         </button>
@@ -58,7 +62,7 @@ function StandingsPage() {
 
       {selectedConference === "east" && (
         <>
-          <h1 className="text-3xl font-semibold text-blue-400 mb-10 text-center">
+          <h1 className="text-xl font-semibold text-blue-400 mb-10 text-center">
             East Conference
           </h1>
           <div className="grid grid-cols-1 gap-y-8 gap-x-4">
@@ -69,7 +73,7 @@ function StandingsPage() {
 
       {selectedConference === "west" && (
         <>
-          <h1 className="text-3xl font-semibold text-blue-400 mb-10 text-center">
+          <h1 className="text-xl font-semibold text-blue-400 mb-10 text-center">
             West Conference
           </h1>
           <div className="grid grid-cols-1 gap-y-8 gap-x-4">
