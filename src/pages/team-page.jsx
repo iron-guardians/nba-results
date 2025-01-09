@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import teamsData from "../data/teams-data.json";
 import standings from "../data/standings.json";
 import gamesData from "../data/games.json";
 import GameCard from "../components/game-card/game-card";
+import { firstCharUpperCase } from "../utils.js";
 
 function TeamPage() {
   const { teamId } = useParams();
@@ -80,19 +81,19 @@ function TeamPage() {
       {/* Columna 2: Detalles Adicionales */}
       <div>
         <p className="text-gray-400">
-          <span className="font-semibold text-orange-400">Conference:</span>{" "}
-          {teamStanding.conference.name}
+          <span className="font-semibold text-orange-400">Conference: </span>
+           {firstCharUpperCase(teamStanding.conference.name)}
         </p>
         <p className="text-gray-400">
-          <span className="font-semibold text-orange-400">Division:</span> {teamStanding.division.name}
+          <span className="font-semibold text-orange-400">Division:</span> {firstCharUpperCase(teamStanding.division.name)}
         </p>
         <p className="text-gray-400">
-          <span className="font-semibold text-orange-400">Wins:</span> {teamStanding.win.total}{" "}
-          <span className="font-semibold text-orange-400">Losses:</span> {teamStanding.loss.total}
+          <span className="font-semibold text-orange-400">Wins: </span> {teamStanding.win.total}
+          <span className="font-semibold text-orange-400"> Losses: </span> {teamStanding.loss.total}
         </p>
         <p className="text-gray-400">
-          <span className="font-semibold text-orange-400">Overall Ranking:</span>{" "}
-          #{teamStanding.position}
+          <span className="font-semibold text-orange-400">Overall Ranking: </span>
+          #{teamStanding.conference.rank}
         </p>
       </div>
     </div>
@@ -124,7 +125,6 @@ function TeamPage() {
         {selectedTab === "played" && (
           <>
             <h2 className="text-2xl font-semibold text-blue-400 mb-6 text-center">
-              Played Games
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
               {playedGames.length > 0 ? (
@@ -139,10 +139,6 @@ function TeamPage() {
         )}
 
         {selectedTab === "upcoming" && (
-          <>
-            <h2 className="text-2xl font-semibold text-blue-400 mb-6 text-center">
-              Upcoming Games
-            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
               {upcomingGames.length > 0 ? (
                 upcomingGames.map((game) => (
@@ -152,7 +148,6 @@ function TeamPage() {
                 <p className="text-center text-gray-400">No upcoming games scheduled.</p>
               )}
             </div>
-          </>
         )}
       </div>
     </div>

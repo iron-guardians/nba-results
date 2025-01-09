@@ -61,17 +61,14 @@ function GameCard({ game, currentGameDate, standings }) {
               {game.scores.home.points}
             </span>
           </h2>
-          <p className="text-xs text-gray-400 mt-1">Points</p>
-          {isDateBeforeCurrentGame && (
+          {(isDateBeforeCurrentGame || gameDate.isSame(dayjs(currentGameDate), 'day') ) && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
           )} {/* Match date */}
         </div>
       ) : (
         <div className="text-center flex flex-col justify-center mx-4">
           <span className="text-gray-400 text-sm font-medium">TO BE PLAYED</span>
-          {isDateBeforeCurrentGame && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
-          )} {/* Match date */}
         </div>
       )}
 

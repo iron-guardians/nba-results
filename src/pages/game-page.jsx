@@ -23,24 +23,22 @@ function GamePage() {
 
     Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings(), DunkNationApi.getGameById(gameId), DunkNationApi.getGameStats(gameId)])
       .then(([gamesResponse, standingsResponse, currentGameResponse, gameStatsResponse]) => {
-        console.log(currentGameResponse);
         setGameData(currentGameResponse[0]);
         setStandings(standingsResponse);
         setGameStats(gameStatsResponse);
 
         // If the game is not played, fetch previous games
-        if (currentGameResponse && currentGameResponse.status.short !== 3) {
+        if (currentGameResponse.length > 0 && currentGameResponse[0].status.short !== 3) {
             const filteredGames = gamesResponse.filter((previousGame) => {
             const currentDate = new Date();
             const gameDate = new Date(previousGame?.date?.start || "");
             const beforeToday = gameDate < currentDate && !isNaN(gameDate);
 
-
             const sameTeams =
-              (previousGame.teams.home.id === currentGameResponse.teams.home.id &&
-                previousGame.teams.visitors.id === currentGameResponse.teams.visitors.id) ||
-              (previousGame.teams.home.id === currentGameResponse.teams.visitors.id &&
-                previousGame.teams.visitors.id === currentGameResponse.teams.home.id);
+              (previousGame.teams.home.id === currentGameResponse[0].teams.home.id &&
+                previousGame.teams.visitors.id === currentGameResponse[0].teams.visitors.id) ||
+              (previousGame.teams.home.id === currentGameResponse[0].teams.visitors.id &&
+                previousGame.teams.visitors.id === currentGameResponse[0].teams.home.id);
 
             return beforeToday && sameTeams && previousGame.status.short === 3;
           });
@@ -68,8 +66,14 @@ function GamePage() {
     (standing) => standing.team.id === gameData.teams.home.id
   );
 
-  const visitorStats = gameStats[1].statistics[0];
-  const homeStats = gameStats[0].statistics[0];
+  let visitorStats;
+  let homeStats;
+
+  if(gameStats.length > 0) {
+    visitorStats = gameStats[1].statistics[0];
+    homeStats = gameStats[0].statistics[0];
+  }
+
 
   const visitorTeam = teamsData.find((team) => team.id === visitorTeamStanding.team.id);
   const homeTeam = teamsData.find((team) => team.id === homeTeamStanding.team.id);
@@ -123,8 +127,8 @@ function GamePage() {
             )}
           </div>
   
-          {/* Stats Comparer */}
-          <StatComparerContainer className=" w-screen p-6 rounded-lg shadow-lg mb-10">
+          
+          {isGamePlayed && <StatComparerContainer className=" w-screen p-6 rounded-lg shadow-lg mb-10">
             <StatComparer
               stat={{
                 statName: "Field Goals",
@@ -169,7 +173,7 @@ function GamePage() {
                 homeMade: homeStats.assists,
               }}
             />
-          </StatComparerContainer>
+          </StatComparerContainer>}
         </div>
       </div>
     </>

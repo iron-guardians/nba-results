@@ -26,7 +26,7 @@ function TeamStanding({ team }) {
       {/* Estadísticas */}
       <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
         <p className="text-gray-300 font-bold">
-          Win Percentage: {team.win.percentage}%
+          Win Percentage: {(team.win.percentage * 100).toFixed(2)}%
         </p>
         <p className="text-gray-300 font-bold">
           Streak:{" "}
