@@ -26,6 +26,7 @@ function GamePage() {
         setGameData(currentGameResponse[0]);
         setStandings(standingsResponse);
         setGameStats(gameStatsResponse);
+        console.log(gameStatsResponse);
 
         // If the game is not played, fetch previous games
         if (currentGameResponse.length > 0 && currentGameResponse[0].status.short !== 3) {
@@ -153,9 +154,23 @@ function GamePage() {
                 homeAttempted: homeStats.tpa,
               }}
             />
+
             <StatComparer
               stat={{
-                statName: "Total Rebounds",
+                statName: "Free throws",
+                isPercentage: true,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.ftm,
+                visitorsAttempted: visitorStats.fta,
+                homeTeam: homeTeam,
+                homeMade: homeStats.ftm,
+                homeAttempted: homeStats.fta,
+              }}
+            />
+
+            <StatComparer
+              stat={{
+                statName: "Rebounds",
                 isPercentage: false,
                 visitorsTeam: visitorTeam,
                 visitorsMade: visitorStats.totReb,
@@ -163,6 +178,29 @@ function GamePage() {
                 homeMade: homeStats.totReb,
               }}
             />
+
+            <StatComparer
+              stat={{
+                statName: "Offensive rebounds",
+                isPercentage: false,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.offReb,
+                homeTeam: homeTeam,
+                homeMade: homeStats.offReb,
+              }}
+            />
+            
+            <StatComparer
+              stat={{
+                statName: "Defensive rebounds",
+                isPercentage: false,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.defReb,
+                homeTeam: homeTeam,
+                homeMade: homeStats.defReb,
+              }}
+            />
+
             <StatComparer
               stat={{
                 statName: "Assists",
@@ -173,6 +211,40 @@ function GamePage() {
                 homeMade: homeStats.assists,
               }}
             />
+
+            <StatComparer
+              stat={{
+                statName: "Steals",
+                isPercentage: false,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.steals,
+                homeTeam: homeTeam,
+                homeMade: homeStats.steals,
+              }}
+            />
+
+            <StatComparer
+              stat={{
+                statName: "Blocks",
+                isPercentage: false,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.blocks,
+                homeTeam: homeTeam,
+                homeMade: homeStats.blocks,
+              }}
+            />
+
+            <StatComparer
+              stat={{
+                statName: "Turnovers",
+                isPercentage: false,
+                visitorsTeam: visitorTeam,
+                visitorsMade: visitorStats.turnovers,
+                homeTeam: homeTeam,
+                homeMade: homeStats.turnovers,
+              }}
+            />
+
           </StatComparerContainer>}
         </div>
       </div>
