@@ -69,7 +69,7 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   .bg-gray-800 {
-    background-attachment: scroll; /* Changing behaviour on mobile */
+    background-attachment: scroll; /* Changing behavior on mobile */
   }
 }
 

@@ -7,7 +7,7 @@ function TeamStanding({ team }) {
       key={team.team.id}
       className="flex flex-col md:flex-row items-center justify-between p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300"
     >
-      {/* Posición y Logo */}
+      {/* Position and Logo */}
       <div className="flex items-center space-x-4 mb-4 md:mb-0">
         <p className="text-gray-300 font-bold text-2xl">#{team.conference.rank}</p>
         <img
@@ -23,7 +23,7 @@ function TeamStanding({ team }) {
         </div>
       </div>
 
-      {/* Estadísticas */}
+      {/* Stats */}
       <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
         <p className="text-gray-300 font-bold">
           Win Percentage: {(team.win.percentage * 100).toFixed(2)}%

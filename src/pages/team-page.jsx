@@ -56,18 +56,18 @@ function TeamPage() {
   return (
     <div className="bg-gray-900 text-white min-h-screen pt-40">
       <div className="container mx-auto pt-6 pb-12">
-  {/* Información Principal */}
+  {/* Principal Information */}
   <div className="flex flex-col md:flex-row items-center md:items-start mb-10 bg-gray-800 p-6 rounded-lg shadow-lg">
-    {/* Logo del Equipo */}
+    {/* Team Logo */}
     <img
       src={teamInfo.logo}
       alt={`${teamInfo.name} Logo`}
       className="w-32 h-32 object-contain mb-6 md:mb-0 md:mr-6"
     />
 
-    {/* Contenido de Información */}
+    {/* Info Content */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 text-center md:text-left w-full">
-      {/* Columna 1: Información Básica */}
+      {/* Column 1: Basic Info */}
       <div>
         <h1 className="text-4xl font-bold text-blue-400">{teamInfo.name}</h1>
         <p className="text-gray-400 mt-2">
@@ -78,7 +78,7 @@ function TeamPage() {
         </p>
       </div>
 
-      {/* Columna 2: Detalles Adicionales */}
+      {/* Column 2: Additional Details */}
       <div>
         <p className="text-gray-400">
           <span className="font-semibold text-orange-400">Conference: </span>
@@ -101,7 +101,7 @@ function TeamPage() {
 
 
 
-        {/* Tabs para Jugados y Próximos Partidos */}
+        {/* Tabs for Plays and Upcoming Matches */}
         <div className="flex justify-center space-x-4 mb-10">
           <button
             onClick={() => setSelectedTab("played")}
@@ -121,7 +121,7 @@ function TeamPage() {
           </button>
         </div>
 
-        {/* Contenido de las Tabs */}
+        {/* Tabs Content */}
         {selectedTab === "played" && (
           <>
             <h2 className="text-2xl font-semibold text-blue-400 mb-6 text-center">
