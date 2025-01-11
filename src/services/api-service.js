@@ -70,6 +70,22 @@ async function getGameStats(gameId) {
   return response.data.response;
 }
 
+async function getTeamStats(teamId) {
+  const options = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/teams/statistics',
+    params: {
+      id: teamId,
+      season: '2024'
+    },
+    headers: api_headers
+  };
+
+  const response = await axios.request(options);
+
+  return response.data.response;
+}
+
 
 // const getAllGames = () => http.get('/games');
 
@@ -83,5 +99,6 @@ export {
   getAllGames,
   getStandings,
   getGameById,
-  getGameStats
+  getGameStats,
+  getTeamStats
 }

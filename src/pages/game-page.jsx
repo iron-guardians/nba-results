@@ -52,7 +52,7 @@ function GamePage() {
 
   if (!gameData || !standings || !gameStats) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-red-500">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-orange-500">
         <h1 className="text-4xl font-bold">Loading game data...</h1>
       </div>
     );

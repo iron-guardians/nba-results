@@ -2,6 +2,7 @@
 
 import dayjs from '../../lib/dayjs';
 import teamsData from '../../data/teams-data.json';
+import { Link } from 'react-router-dom';
 
 function GameHeading({ game, teams }) {
 
@@ -31,7 +32,7 @@ function GameHeading({ game, teams }) {
           <div className="flex items-center justify-center w-full text-white">
             {/* Visitor Team */}
             <div className="flex flex-col items-center mx-8">
-              <img src={visitorTeam.logo} alt="Visitor Team Logo" className="min-h-28 min-w-28 mb-2" />
+              <Link to={`/team/${visitorTeam.id}`} className="flex items-center justify-center"><img src={visitorTeam.logo} alt="Visitor Team Logo" className="min-h-28 min-w-28 mb-2 hover:animate-bounceFromCurrent" /></Link>
               <h3 className="text-lg font-bold text-center">{visitorTeam.code}</h3>
               <p className="text-sm text-gray-200">{`${visitorTeamStanding.win.total} - ${visitorTeamStanding.loss.total}`}</p>
             </div>
@@ -63,7 +64,7 @@ function GameHeading({ game, teams }) {
       
             {/* Home Team */}
             <div className="flex flex-col items-center mx-8">
-              <img src={homeTeam.logo} alt="Home Team Logo" className="min-h-28 min-w-28 mb-2" />
+              <Link to={`/team/${homeTeam.id}`} className="flex items-center justify-center"><img src={homeTeam.logo} alt="Home Team Logo" className="min-h-28 min-w-28 mb-2 hover:animate-bounceFromCurrent" /></Link>
               <h3 className="text-lg font-bold text-center">{homeTeam.code}</h3>
               <p className="text-sm text-gray-200">{`${homeTeamStanding.win.total} - ${homeTeamStanding.loss.total}`}</p>
             </div>
