@@ -114,8 +114,6 @@ function TeamPage() {
         </div>
 
 
-
-
         {/* Team Stats */}
         {teamStats && (
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-10">
@@ -169,7 +167,7 @@ function TeamPage() {
           </button>
         </div>
 
-        {/* Tab Content */}
+        {/* Tabs Content */}
         {selectedTab === "played" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
             {playedGames.length > 0 ? (
