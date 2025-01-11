@@ -171,7 +171,7 @@ function TeamPage() {
         {selectedTab === "played" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
             {playedGames.length > 0 ? (
-              playedGames.map((game) => <Link to={`/game/${game.id}`} key={game.id}><GameCard game={game} standings={standings} /></Link>)
+              playedGames.map((game) => <Link to={`/game/${game.id}`} key={game.id} className="w-full mx-auto transform hover:scale-105 transition-transform duration-300"><GameCard game={game} standings={standings} /></Link>)
             ) : (
               <p className="text-center text-gray-400">No games played yet.</p>
             )}
@@ -180,7 +180,7 @@ function TeamPage() {
         {selectedTab === "upcoming" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-4">
             {upcomingGames.length > 0 ? (
-              upcomingGames.map((game) => <Link to={`/game/${game.id}`} key={game.id}><GameCard game={game} standings={standings} /></Link>)
+              upcomingGames.map((game) => <Link to={`/game/${game.id}`} key={game.id} className="w-full mx-auto transform hover:scale-105 transition-transform duration-300"><GameCard game={game} standings={standings} /></Link>)
             ) : (
               <p className="text-center text-gray-400">No upcoming games scheduled.</p>
             )}

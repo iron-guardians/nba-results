@@ -27,7 +27,7 @@ function TeamsListPage() {
                 <Link
                   key={team.id}
                   to={`/team/${team.id}`}
-                  className="flex items-center justify-center bg-gray-800 rounded-lg hover:shadow-xl transition-shadow"
+                  className="flex items-center justify-center bg-gray-800 rounded-lg hover:shadow-xl transition-shadow w-full mx-auto transform hover:scale-105 transition-transform duration-300"
                   style={{
                     aspectRatio: "1", // Ensures the buttons are square
                   }}

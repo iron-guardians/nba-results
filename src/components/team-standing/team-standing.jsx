@@ -5,7 +5,7 @@ function TeamStanding({ team }) {
     <Link
       to={`/team/${team.team.id}`}
       key={team.team.id}
-      className="flex flex-col md:flex-row items-center justify-between p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-lg"
+      className="flex flex-col md:flex-row items-center justify-between p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-lg  group"
     >
       {/* Position and Logo */}
       <div className="flex items-center space-x-4 mb-4 md:mb-0">
@@ -13,7 +13,7 @@ function TeamStanding({ team }) {
         <img
           src={team.logo}
           alt={`${team.team.name} Logo`}
-          className="w-16 h-16 object-contain"
+          className="w-16 h-16 object-contain group-hover:animate-bounceFromCurrent"
         />
         <div>
           <h3 className="text-lg font-bold text-orange-400">{team.team.name}</h3>
