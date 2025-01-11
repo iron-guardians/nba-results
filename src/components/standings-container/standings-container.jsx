@@ -6,7 +6,7 @@ function StandingsContainer({ rankedTeams }) {
       {rankedTeams.map((team) => (
         <div
           key={team.id}
-          className="transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+          className="shadow-md hover:shadow-lg"
         >
           <TeamStanding team={team} />
         </div>
