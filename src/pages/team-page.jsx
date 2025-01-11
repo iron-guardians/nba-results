@@ -112,8 +112,7 @@ function TeamPage() {
             </div>
           </div>
         </div>
-
-
+  
         {/* Team Stats */}
         {teamStats && (
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-10">

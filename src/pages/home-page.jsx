@@ -1,15 +1,21 @@
 import GameCardContainer from "../components/game-card-container/game-card-container";
 import Banner from "../components/banner-heading/banner-heading";
 import WeeklyCalendar from "../components/calendar/calendar";
-import { Link } from "react-router-dom";
 import GameCard from "../components/game-card/game-card";
+
 import * as DunkNationApi from "../services/api-service.js";
 
 import { useState, useEffect, useRef } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import dayjs from "../lib/dayjs";
 
 function HomePage() {
-  const [currentDate, setCurrentDate] = useState(dayjs()); // Initializing with the current date
+  const { date } = useParams();
+  const navigate = useNavigate();
+
+  const [currentDate, setCurrentDate] = useState(
+    date ? dayjs(date, "ddd") : dayjs()
+  ); // Initializing with the current date
 
   const [todayGames, setTodayGames] = useState([]);
   const [gamesData, setGamesData] = useState([]);
@@ -32,6 +38,14 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
+    if (date) {
+      const parsedDate = dayjs(date, "ddd");
+      if (parsedDate.isValid()) {
+        setCurrentDate(parsedDate); 
+      }}
+  }, [date])
+
+  useEffect(() => {
     if (gamesData.length > 0) {
       const formattedDate = currentDate.format("ll");
 
@@ -42,13 +56,19 @@ function HomePage() {
     }
   }, [gamesData, currentDate]);
 
+  function setNewDate(selectedDay)
+  {
+    //setCurrentDate(selectedDay);
+    navigate(`/${(dayjs(selectedDay).add(1, 'day')).toISOString().split("T")[0]}`, { replace: true });
+  }
+
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       {/* Banner */}
       <Banner />
 
       {/* Weekly Calendar */}
-      <WeeklyCalendar onDayClick={(selectedDay) => setCurrentDate(selectedDay)} />
+      <WeeklyCalendar date={date} onDayClick={(selectedDay) => setNewDate(selectedDay)} />
 
       {/* Match Grid */}
       <GameCardContainer 
