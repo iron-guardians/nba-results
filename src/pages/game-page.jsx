@@ -142,6 +142,7 @@ function GamePage() {
                 homeAttempted: homeStats.fga,
               }}
             />
+
             <StatComparer
               stat={{
                 statName: "3 Pointers",
