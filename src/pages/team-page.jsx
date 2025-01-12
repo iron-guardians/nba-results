@@ -13,6 +13,7 @@ function TeamPage() {
   const [playedGames, setPlayedGames] = useState([]);
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [teamStats, setTeamStats] = useState(null);
+  const [players, setPlayers] = useState([]);
   const [selectedTab, setSelectedTab] = useState("played");
 
   useEffect(() => {
@@ -43,6 +44,10 @@ function TeamPage() {
           new Date(game.date.start) >= currentDate &&
           game.status.short !== 3
       );
+      
+      DunkNationApi.getPlayerByTeam(teamId).then((players) => {
+        setPlayers(players);
+      });
 
       setPlayedGames(played);
       setUpcomingGames(upcoming);
@@ -54,6 +59,8 @@ function TeamPage() {
         setTeamStats(stats[0]);
       });
   }, [teamId]);
+
+  
 
   if (!teamInfo || standings.length === 0 || !teamStanding) {
     return (
@@ -145,6 +152,32 @@ function TeamPage() {
             </div>
           </div>
         )}
+
+        {/* Players List */}
+        {players.length > 0 && (
+        <div className="bg-gray-800 p-4 rounded-lg shadow-lg mb-10">
+          <h2 className="text-xl font-semibold text-blue-400 mb-4">Players</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {players.map((player) => (
+              <div
+                key={player.id}
+                className="bg-gray-700 p-2 rounded-lg shadow-md flex flex-col items-center text-center"
+              >
+                <h3 className="text-sm font-semibold text-orange-400">
+                  {player.firstname} {player.lastname}
+                </h3>
+                <p className="text-xs text-gray-400">Pos: {player.leagues?.standard?.pos || "N/A"}</p>
+                <p className="text-xs text-gray-400">
+                  Ht: {player.height.feets || "N/A"}' {player.height.inches || ""}
+                </p>
+                <p className="text-xs text-gray-400">
+                  Wt: {player.weight.pounds || "N/A"} lbs
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
         {/* Tabs for Played and Upcoming Games */}
         <div className="flex justify-center space-x-4 mb-10">

@@ -25,14 +25,6 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="/players"
-              className="text-blue-400 hover:text-orange-500 transition-colors duration-300 font-semibold"
-            >
-              Players
-            </Link>
-          </li>
-          <li>
-            <Link
               to="/standings"
               className="text-blue-400 hover:text-orange-500 transition-colors duration-300 font-semibold"
             >

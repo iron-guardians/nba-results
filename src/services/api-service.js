@@ -86,6 +86,36 @@ async function getTeamStats(teamId) {
   return response.data.response;
 }
 
+async function getPlayerByTeam(teamId) {
+  const options = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/players',
+    params: {
+      team: teamId,
+      season: '2024'
+    },
+    headers: api_headers
+  };
+  
+  const response = await axios.request(options);
+
+  return response.data.response;
+}
+
+async function getPlayersStatsPerGame(gameId) {
+  const options = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/players/statistics',
+    params: {
+      game: gameId
+    },
+    headers: api_headers
+  };
+  
+  const response = await axios.request(options);
+
+  return response.data.response;
+}
 
 // const getAllGames = () => http.get('/games');
 
@@ -100,5 +130,7 @@ export {
   getStandings,
   getGameById,
   getGameStats,
-  getTeamStats
+  getTeamStats,
+  getPlayerByTeam,
+  getPlayersStatsPerGame
 }

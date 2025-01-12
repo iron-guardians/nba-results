@@ -5,8 +5,7 @@ import Header from "./components/header/header"
 import HomePage from "./pages/home-page"
 import GamePage from "./pages/game-page"
 import TeamsListPage from "./pages/teams-list-page"
-import StandingsPage from "./pages/standings-page"; 
-import PlayersPage from "./pages/players-page"; 
+import StandingsPage from "./pages/standings-page";
 import TeamPage from "./pages/team-page";
 import Footer from "./components/footer/footer"
 
@@ -23,9 +22,10 @@ function App() {
   }, [navigate]);
 
   return (
-    <div className="w-screen h-screen">
-      <Header /> 
-        {/* ScrollToTop to control the scroll at the start */}
+    <div className="w-full h-screen">
+      <Header />
+      
+      {/* ScrollToTop to control the scroll at the start */}
       <ScrollToTop />
 
       <Routes>
@@ -34,7 +34,6 @@ function App() {
         <Route path="/game/:gameId" element={<GamePage />}/>
         <Route path="/teams" element={<TeamsListPage />} />
         <Route path="/standings" element={<StandingsPage />} />
-        <Route path="/players" element={<PlayersPage />} />
         <Route path="/team/:teamId" element={<TeamPage />} />
 
       </Routes>
