@@ -16,17 +16,24 @@ function GamePage() {
   const [standings, setStandings] = useState();
   const [gameStats, setGameStats] = useState();
   const [previousGames, setPreviousGames] = useState([]);
+  const [playersStats, setPlayersStats] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState("home");
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    Promise.all([DunkNationApi.getAllGames(), DunkNationApi.getStandings(), DunkNationApi.getGameById(gameId), DunkNationApi.getGameStats(gameId)])
-      .then(([gamesResponse, standingsResponse, currentGameResponse, gameStatsResponse]) => {
+    Promise.all(  [DunkNationApi.getAllGames(),
+                  DunkNationApi.getStandings(),
+                  DunkNationApi.getGameById(gameId),
+                  DunkNationApi.getGameStats(gameId),
+                  DunkNationApi.getPlayersStatsPerGame(gameId)
+                ])
+      .then(([gamesResponse, standingsResponse, currentGameResponse, gameStatsResponse, playersStatsResponse]) => {
         setGameData(currentGameResponse[0]);
         setStandings(standingsResponse);
         setGameStats(gameStatsResponse);
-        console.log(gameStatsResponse);
+        setPlayersStats(playersStatsResponse);
 
         // If the game is not played, fetch previous games
         if (currentGameResponse.length > 0 && currentGameResponse[0].status.short !== 3) {
@@ -50,7 +57,7 @@ function GamePage() {
       .catch((error) => console.error("Error fetching data:", error));
   }, [gameId]);
 
-  if (!gameData || !standings || !gameStats) {
+  if (!gameData || !standings || (gameData?.status.short !== 3 && !playersStats)) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-orange-500">
         <h1 className="text-4xl font-bold">Loading game data...</h1>
@@ -78,6 +85,11 @@ function GamePage() {
 
   const visitorTeam = teamsData.find((team) => team.id === visitorTeamStanding.team.id);
   const homeTeam = teamsData.find((team) => team.id === homeTeamStanding.team.id);
+
+  const filteredPlayerStats = playersStats.filter(
+    (stat) =>
+      stat.team.id === (selectedTeam === "home" ? homeTeam.id : visitorTeam.id)
+  );
 
   return (
     <>
@@ -128,6 +140,60 @@ function GamePage() {
             )}
           </div>
   
+          {/* Player Stats */}
+          {isGamePlayed && (
+            <div className="stat-container p-6 rounded-lg shadow-lg mb-10">
+              <h2 className="text-3xl font-semibold text-blue-400 mb-4 text-center">
+                Player Stats
+              </h2>
+              <div className="flex justify-center mb-4 space-x-4">
+                <button
+                  className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
+                  ${selectedTeam === "home" ? "bg-blue-500 text-white" : "bg-gray-700"
+                  }`}
+                  onClick={() => setSelectedTeam("home")}
+                >
+                  Home Team
+                </button>
+                <button
+                  className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
+                  ${selectedTeam === "visitor" ? "bg-blue-500 text-white" : "bg-gray-700"
+                  }`}
+                  onClick={() => setSelectedTeam("visitor")}
+                >
+                  Visitor Team
+                </button>
+              </div>
+              <table className="min-w-full table-auto bg-gray-800 rounded-lg overflow-hidden table-fixed">
+                <thead>
+                  <tr>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Player</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Points</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Rebounds</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Assists</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Steals</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Blocks</th>
+                    <th className="px-4 py-2 text-left text-sm font-bold text-blue-400" style={{width: "10%"}}>Turnovers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredPlayerStats.map((stat) => (
+                    <tr key={stat.player.id} className="hover:bg-gray-700">
+                      <td className="border border-gray-700 px-4 py-2">
+                        {stat.player.firstname} {stat.player.lastname}
+                      </td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.points}</td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.totReb}</td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.assists}</td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.steals}</td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.blocks}</td>
+                      <td className="border border-gray-700 px-4 py-2">{stat.turnovers}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
           
           {isGamePlayed && <StatComparerContainer className=" w-screen p-6 rounded-lg shadow-lg mb-10">
             <StatComparer
