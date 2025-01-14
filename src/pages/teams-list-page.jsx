@@ -45,9 +45,9 @@ function TeamsListPage() {
           .filter(([conference]) => conference === selectedConference)
           .map(([conference, teams]) => (
             <div key={conference} className="mb-12">
-              <h2 className="text-3xl font-semibold text-blue-500 mb-6 text-center">
+              {/* <h2 className="text-3xl font-semibold text-blue-500 mb-6 text-center">
                 {conference} Conference
-              </h2>
+              </h2> */}
               <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
                 {teams.map((team) => (
                   <Link

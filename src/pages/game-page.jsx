@@ -153,7 +153,7 @@ function GamePage() {
                   }`}
                   onClick={() => setSelectedTeam("home")}
                 >
-                  Home Team
+                  {gameData.teams.home.abbreviation}
                 </button>
                 <button
                   className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
@@ -161,7 +161,7 @@ function GamePage() {
                   }`}
                   onClick={() => setSelectedTeam("visitor")}
                 >
-                  Visitor Team
+                  {gameData.teams.visitors.abbreviation}
                 </button>
               </div>
               <table className="min-w-full table-auto bg-gray-800 rounded-lg overflow-hidden table-fixed">

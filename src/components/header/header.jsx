@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
   
         {/* Navigation */}
-        <ul className="flex space-x-6 text-lg">
+        <ul className="flex justify-center space-x-6 text-lg w-full">
           <li>
             <Link
               to="/teams"
@@ -33,13 +33,13 @@ const Header = () => {
           </li>
         </ul>
   
-        {/* Login Button */}
+        {/* Login Button
         <Link
           to="/login"
           className="bg-blue-500 hover:bg-blue-600 hover:text-orange-500 font-semibold px-6 py-3 rounded transition duration-300"
         >
           LOGIN
-        </Link>
+        </Link> */}
       </nav>
     </header>
   );
