@@ -4,9 +4,9 @@ import isToday from "dayjs/plugin/isToday";
 
 dayjs.extend(isToday);
 
-const WeeklyCalendar = ({ onDayClick }) => {
+const WeeklyCalendar = ({ onDayClick, date }) => {
   const [currentDate, setCurrentDate] = useState(dayjs()); // Current date
-  const [selectedDate, setSelectedDate] = useState(dayjs()); // Selected date
+  const [selectedDate, setSelectedDate] = useState(date); // Selected date
   const [showMonthlyCalendar, setShowMonthlyCalendar] = useState(false); // Toggle monthly calendar
   const startOfWeek = currentDate.startOf("week"); // Start of the current week
   const calendarRef = useRef(null); // Ref for detecting clicks outside the calendar

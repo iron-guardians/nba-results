@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from 'react-router-dom';
 import teamsData from '../../data/teams-data.json';
 import dayjs from 'dayjs'; // Assures you have dayjs installed to handle dates
 
@@ -24,13 +25,15 @@ function GameCard({ game, currentGameDate, standings }) {
     <div className="flex items-center justify-between border-gray-700 rounded-lg p-4 bg-gray-800 shadow-md hover:shadow-lg transition-transform duration-600">
       {/* Team 1 */}
       <div className="flex flex-col items-center group">
-        <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
-          <img
-            src={visitorTeam.logo}
-            alt="Visitor Team Logo"
-            className="min-h-20 min-w-20 object-contain"
-          />
-        </div>
+        <Link to={`/team/${visitorTeam.id}`} className="flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
+            <img
+              src={visitorTeam.logo}
+              alt="Visitor Team Logo"
+              className="min-h-20 min-w-20 object-contain"
+            />
+          </div>
+        </Link>
         <h3 className="text-sm font-semibold mt-2 text-orange-400">{visitorTeam.code}</h3>
         <p className="text-xs text-gray-300">
           {visitorTeamStanding.win.total} - {visitorTeamStanding.loss.total}
@@ -61,29 +64,28 @@ function GameCard({ game, currentGameDate, standings }) {
               {game.scores.home.points}
             </span>
           </h2>
-          <p className="text-xs text-gray-400 mt-1">Points</p>
-          {isDateBeforeCurrentGame && (
+          {(isDateBeforeCurrentGame || gameDate.isSame(dayjs(currentGameDate), 'day') ) && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
           )} {/* Match date */}
         </div>
       ) : (
         <div className="text-center flex flex-col justify-center mx-4">
           <span className="text-gray-400 text-sm font-medium">TO BE PLAYED</span>
-          {isDateBeforeCurrentGame && (
             <p className="text-xs text-gray-300 mt-2">{formattedDate}</p>
-          )} {/* Match date */}
         </div>
       )}
 
       {/* Team 2 */}
       <div className="flex flex-col items-center group">
-        <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
-          <img
-            src={homeTeam.logo}
-            alt="Home Team Logo"
-            className="min-h-20 min-w-20 object-contain"
-          />
-        </div>
+        <Link to={`/team/${homeTeam.id}`} className="flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          <div className="w-20 h-20 flex items-center justify-center overflow-hidden group-hover:animate-bounceFromCurrent">
+            <img
+              src={homeTeam.logo}
+              alt="Home Team Logo"
+              className="min-h-20 min-w-20 object-contain"
+            />
+          </div>
+        </Link>
         <h3 className="text-sm font-semibold mt-2 text-orange-400">{homeTeam.code}</h3>
         <p className="text-xs text-gray-300">
           {homeTeamStanding.win.total} - {homeTeamStanding.loss.total}

@@ -61,25 +61,15 @@ function StandingsPage() {
       </div>
 
       {selectedConference === "east" && (
-        <>
-          <h1 className="text-xl font-semibold text-blue-400 mb-10 text-center">
-            East Conference
-          </h1>
           <div className="grid grid-cols-1 gap-y-8 gap-x-4">
             <StandingContainer rankedTeams={eastRankedTeams} />
           </div>
-        </>
       )}
 
       {selectedConference === "west" && (
-        <>
-          <h1 className="text-xl font-semibold text-blue-400 mb-10 text-center">
-            West Conference
-          </h1>
           <div className="grid grid-cols-1 gap-y-8 gap-x-4">
             <StandingContainer rankedTeams={westRankedTeams} />
           </div>
-        </>
       )}
     </div>
   </div>

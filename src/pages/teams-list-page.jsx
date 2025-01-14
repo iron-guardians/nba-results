@@ -66,6 +66,7 @@ function TeamsListPage() {
                   </Link>
                 ))}
               </div>
+
             </div>
           ))}
       </div>
