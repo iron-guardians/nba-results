@@ -149,19 +149,19 @@ function GamePage() {
               <div className="flex justify-center mb-4 space-x-4">
                 <button
                   className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
-                  ${selectedTeam === "home" ? "bg-blue-500 text-white" : "bg-gray-700"
-                  }`}
-                  onClick={() => setSelectedTeam("home")}
-                >
-                  Home Team
-                </button>
-                <button
-                  className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
                   ${selectedTeam === "visitor" ? "bg-blue-500 text-white" : "bg-gray-700"
                   }`}
                   onClick={() => setSelectedTeam("visitor")}
                 >
-                  Visitor Team
+                  {visitorTeam.code}
+                </button>
+                <button
+                  className={`px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 text-white
+                  ${selectedTeam === "home" ? "bg-blue-500 text-white" : "bg-gray-700"
+                  }`}
+                  onClick={() => setSelectedTeam("home")}
+                >
+                  {homeTeam.code}
                 </button>
               </div>
               <table className="min-w-full table-auto bg-gray-800 rounded-lg overflow-hidden table-fixed">

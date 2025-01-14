@@ -7,7 +7,7 @@ function QuartersTable({ game, teams }) {
     <div className="relative bg-gray-900 py-6">
       {/* Container for shadow effect */}
       <div
-        className="w-full overflow-x-auto shadow-inner p-4"
+        className="flex flex-col items-center justify-center p-6 w-screen hover:shadow-lg transition-transform duration-600 shadow-inner"
         style={{
           boxShadow: "inset 0 6px 12px rgba(0, 0, 0, 0.7), inset 0 -6px 12px rgba(0, 0, 0, 0.7)",
         }}

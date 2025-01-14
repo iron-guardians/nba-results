@@ -20,7 +20,7 @@ function TeamsListPage() {
     <div className="bg-gray-900 text-white min-h-screen pt-40">
       <div className="container mx-auto pt-6 pb-12">
         <h1 className="text-6xl font-bold text-center pb-10 text-blue-400 mb-10">
-          NBA Teams by Conference
+          Teams by Conference
         </h1>
 
         {/* Tabs for conferences */}
@@ -45,7 +45,6 @@ function TeamsListPage() {
           .filter(([conference]) => conference === selectedConference)
           .map(([conference, teams]) => (
             <div key={conference} className="mb-12">
-              <h2 className="text-3xl font-semibold text-blue-500 mb-6 text-center" />
               <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
                 {teams.map((team) => (
                   <Link

@@ -27,7 +27,7 @@ const Banner = () => {
             meets <span className="text-blue-400 font-bold">data</span>
           </p>
 
-          {/* Buttons */}
+          {/* Buttons
           <div className="flex justify-center md:justify-start gap-4">
             <a
               href="#"
@@ -35,13 +35,13 @@ const Banner = () => {
             >
               REGISTER
             </a>
-            {/* <a
+            <a
               href="#"
               className="bg-blue-500 hover:bg-blue-600 hover:text-orange-500 font-semibold px-6 py-3 rounded transition duration-300"
             >
               FANTASY LEAGUE
-            </a> */}
-          </div>
+            </a>
+          </div> */}
         </div>
 
         {/* Principal Image */}
