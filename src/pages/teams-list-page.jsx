@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import teamsData from "../data/teams-data.json";
 
 function TeamsListPage() {
-  // Agrupar equipos por conferencia
+  // Group teams by conference
   const groupedTeams = teamsData.reduce((acc, team) => {
     const { conference } = team;
     if (!acc[conference]) acc[conference] = [];
@@ -11,7 +11,7 @@ function TeamsListPage() {
     return acc;
   }, {});
 
-  // Estado para la pestaña activa
+  // Status for the active tab
   const [selectedConference, setSelectedConference] = useState(
     Object.keys(groupedTeams)[0]
   );
@@ -23,7 +23,7 @@ function TeamsListPage() {
           NBA Teams by Conference
         </h1>
 
-        {/* Tabs para las conferencias */}
+        {/* Tabs for conferences */}
         <div className="flex justify-center space-x-4 mb-10">
           {Object.keys(groupedTeams).map((conference) => (
             <button
@@ -40,14 +40,12 @@ function TeamsListPage() {
           ))}
         </div>
 
-        {/* Contenido de la conferencia seleccionada */}
+        {/* Content of the selected conference */}
         {Object.entries(groupedTeams)
           .filter(([conference]) => conference === selectedConference)
           .map(([conference, teams]) => (
             <div key={conference} className="mb-12">
-              <h2 className="text-3xl font-semibold text-blue-500 mb-6 text-center">
-                {conference} Conference
-              </h2>
+              <h2 className="text-3xl font-semibold text-blue-500 mb-6 text-center" />
               <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
                 {teams.map((team) => (
                   <Link
@@ -55,7 +53,7 @@ function TeamsListPage() {
                     to={`/team/${team.id}`}
                     className="flex items-center justify-center bg-gray-800 rounded-lg hover:shadow-xl transition-transform transform hover:-translate-y-2"
                     style={{
-                      aspectRatio: "1", // Asegura que las tarjetas sean cuadradas
+                      aspectRatio: "1", // Ensure the cards are square
                     }}
                   >
                     <img

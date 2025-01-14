@@ -5,14 +5,14 @@ function QuartersTable({ game, teams }) {
 
   return (
     <div className="relative bg-gray-900 py-6">
-      {/* Contenedor para el efecto de sombra */}
+      {/* Container for shadow effect */}
       <div
         className="w-full overflow-x-auto shadow-inner p-4"
         style={{
           boxShadow: "inset 0 6px 12px rgba(0, 0, 0, 0.7), inset 0 -6px 12px rgba(0, 0, 0, 0.7)",
         }}
       >
-        {/* Contenido de la tabla centrado */}
+        {/* Table content centered */}
         <div className="container mx-auto px-4">
           <table className="min-w-full table-auto border-collapse">
             <thead>
