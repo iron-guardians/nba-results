@@ -35,12 +35,12 @@ const Banner = () => {
             >
               REGISTER
             </a>
-            <a
+            {/* <a
               href="#"
               className="bg-blue-500 hover:bg-blue-600 hover:text-orange-500 font-semibold px-6 py-3 rounded transition duration-300"
             >
               FANTASY LEAGUE
-            </a>
+            </a> */}
           </div>
         </div>
 
